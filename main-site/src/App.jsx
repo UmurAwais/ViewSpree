@@ -32,8 +32,8 @@ const App = () => {
         <LatestNews />
         <GamingSection />
         <TechSection />
-        <ReviewsSection />
         <Features />
+        <ReviewsSection />
         <AISection />
         <GadgetsSection />
         
