@@ -4,8 +4,13 @@ import Header from './components/Header'
 import AnnouncementBar from './components/AnnouncementBar'
 import Hero from './components/Hero'
 import Categories from './components/Categories'
+import BreakingNews from './components/BreakingNews'
 import LatestNews from './components/ViewSpreeExclusive'
 import GamingSection from './components/GamingSection'
+import AISection from './components/AISection'
+import ReviewsSection from './components/ReviewsSection'
+import GadgetsSection from './components/GadgetsSection'
+import TechSection from './components/TechSection'
 import Features from './components/Features'
 import Footer from './components/Footer'
 import Button from './components/Button'
@@ -21,11 +26,16 @@ const App = () => {
       
       {/* Content Layer */}
       <main>
-        <Hero />
+        <BreakingNews />
+        {/* <Hero /> */}
         <Categories />
         <LatestNews />
         <GamingSection />
+        <TechSection />
+        <ReviewsSection />
         <Features />
+        <AISection />
+        <GadgetsSection />
         
         {/* Newsletter Section */}
         <section className="py-24">

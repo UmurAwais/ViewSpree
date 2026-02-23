@@ -1,58 +1,58 @@
 import React from 'react';
-import { ArrowUpRight, Gamepad2 } from 'lucide-react';
+import { ArrowUpRight, Cpu } from 'lucide-react';
 
-const gamingArticles = [
+const aiArticles = [
   {
-    title: "GTA VI Technical Analysis: Pushing RAGE Engine to the Limits",
-    category: "Rockstar Games",
-    image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800",
+    title: "OpenAI's Project Q*: The Path to Artificial General Intelligence",
+    category: "Generative AI",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
     readTime: "12 Min Read"
   },
   {
-    title: "The Future of PlayStation VR2: Exclusive Tech Deep Dive",
-    category: "PlayStation",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=800",
+    title: "NVIDIA H100 Tensor Core Architecture: The Hardware Dominance",
+    category: "AI Hardware",
+    image: "https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?auto=format&fit=crop&q=80&w=800",
     readTime: "15 Min Read"
   },
   {
-    title: "Nintendo Switch 2 Architecture: What We Know So Far",
-    category: "Nintendo",
-    image: "https://images.unsplash.com/photo-1595303526913-c7037797ebe7?auto=format&fit=crop&q=80&w=800",
+    title: "Optimizing Deep Learning Models for Edge Computing",
+    category: "Machine Learning",
+    image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&q=80&w=800",
     readTime: "10 Min Read"
   },
   {
-    title: "Xbox Game Pass: The Technical Backbone of Cloud Gaming",
-    category: "Xbox",
-    image: "https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&q=80&w=800",
+    title: "Transformer Networks: Beyond Natural Language Processing",
+    category: "Neural Networks",
+    image: "https://images.unsplash.com/photo-1625314887424-9f190599bd56?auto=format&fit=crop&q=80&w=800",
     readTime: "13 Min Read"
   },
   {
-    title: "Red Dead Redemption 3: Speculative Physics and Lighting",
-    category: "Rockstar Games",
-    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80&w=800",
+    title: "Midjourney v6: Photorealism and the Generative Media Revolution",
+    category: "Generative AI",
+    image: "https://images.unsplash.com/photo-1678280665971-ce4baacc39e9?auto=format&fit=crop&q=80&w=800",
     readTime: "8 Min Read"
   },
   {
-    title: "Uncharted: Legacy of Thieves - PS5 Performance Comparison",
-    category: "PlayStation",
-    image: "https://images.unsplash.com/photo-1622233114058-02f47ba4d7d6?auto=format&fit=crop&q=80&w=800",
+    title: "Groq LPU vs GPU: Re-engineering the Machine Learning Pipeline",
+    category: "AI Hardware",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800",
     readTime: "14 Min Read"
   },
   {
-    title: "The Legend of Zelda: Technical evolution of Open Worlds",
-    category: "Nintendo",
-    image: "https://images.unsplash.com/photo-1516053303028-ae09f92e2043?auto=format&fit=crop&q=80&w=800",
+    title: "Reinforcement Learning in Robotics: Sim-to-Real Transfer",
+    category: "Machine Learning",
+    image: "https://images.unsplash.com/photo-1591453006319-5d3c8c68aa2a?auto=format&fit=crop&q=80&w=800",
     readTime: "11 Min Read"
   },
   {
-    title: "Halo Infinite: Mastering the Slipspace Engine Optimization",
-    category: "Xbox",
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    title: "The Architecture of Mixture of Experts (MoE) Models",
+    category: "Neural Networks",
+    image: "https://images.unsplash.com/photo-1664551227092-2cc351c2acbb?auto=format&fit=crop&q=80&w=800",
     readTime: "9 Min Read"
   }
 ];
 
-const GamingSection = () => {
+const AISection = () => {
   return (
     <section className="py-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
       <div className="container-custom">
@@ -60,19 +60,19 @@ const GamingSection = () => {
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-4">
             <div className="w-2 h-8 bg-accent rounded-full" />
-            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">Gaming Intelligence</h2>
+            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">AI Intelligence</h2>
           </div>
           <button className="py-2 px-8 border border-white/10 rounded-lg text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer flex items-center gap-2">
-            Explores Games
+            Explore AI
             <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 group-hover:bg-white/5 transition-all">
                <ArrowUpRight className="w-3 h-3" />
             </div>
           </button>
         </div>
 
-        {/* Gaming Intelligence Grid */}
+        {/* AI Intelligence Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {gamingArticles.map((article, index) => (
+          {aiArticles.map((article, index) => (
             <div key={index} className="group cursor-pointer bg-[#202020] hover:bg-[#2a2a2c] transition-colors duration-300 rounded-[28px] p-4 border border-white/5 flex flex-col h-full">
               {/* Thumbnail Container */}
               <div className="relative aspect-16/10 rounded-[20px] overflow-hidden bg-[#121212] mb-5 w-full shrink-0">
@@ -97,7 +97,7 @@ const GamingSection = () => {
                   {article.title}
                 </h3>
                 <div className="flex items-center gap-2 text-white/50 text-[13px] font-medium">
-                  <Gamepad2 className="w-4 h-4 shrink-0" />
+                  <Cpu className="w-4 h-4 shrink-0" />
                   <span className="truncate">{article.category} • {article.readTime}</span>
                 </div>
               </div>
@@ -109,4 +109,4 @@ const GamingSection = () => {
   );
 };
 
-export default GamingSection;
+export default AISection;

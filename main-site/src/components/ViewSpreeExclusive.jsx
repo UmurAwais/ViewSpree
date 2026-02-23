@@ -51,10 +51,10 @@ const LatestNews = () => {
           {newsData.map((item, index) => (
             <div 
               key={index} 
-              className="bg-[#1a1a1e] rounded-3xl p-4 flex items-center gap-6 hover:bg-[#232328] transition-colors cursor-pointer group border border-white/5"
+              className="bg-[#202020] hover:bg-[#2a2a2c] transition-colors duration-300 rounded-[28px] p-4 flex items-center gap-6 cursor-pointer group border border-white/5"
             >
               {/* Thumbnail */}
-              <div className="w-60 h-40 shrink-0 rounded-2xl overflow-hidden bg-black relative">
+              <div className="w-60 h-40 shrink-0 rounded-[20px] overflow-hidden bg-[#121212] relative">
                 <img 
                   src={item.image} 
                   alt="" 
@@ -67,7 +67,7 @@ const LatestNews = () => {
                 <span className="text-[11px] text-white/40 font-bold tracking-wider uppercase mb-3 font-display">
                   {item.date}
                 </span>
-                <h3 className="text-[19px] font-bold text-white mb-3 leading-tight group-hover:text-accent transition-colors font-display line-clamp-2">
+                <h3 className="text-[19px] font-bold text-white mb-3 leading-tight group-hover:underline decoration-accent decoration-[3px] underline-offset-2 transition-all font-display line-clamp-2">
                   {item.title}
                 </h3>
                 <p className="text-[14px] text-white/60 font-normal leading-relaxed mb-4 line-clamp-2">

@@ -1,58 +1,58 @@
 import React from 'react';
-import { ArrowUpRight, Gamepad2 } from 'lucide-react';
+import { ArrowUpRight, Star } from 'lucide-react';
 
-const gamingArticles = [
+const reviewArticles = [
   {
-    title: "GTA VI Technical Analysis: Pushing RAGE Engine to the Limits",
-    category: "Rockstar Games",
-    image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800",
+    title: "iPhone 17 Pro Max Camera Analysis: Computational Mastery",
+    category: "Phones",
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800",
+    readTime: "16 Min Read"
+  },
+  {
+    title: "Samsung Galaxy S26 Ultra: The Ultimate AI Companion Tested",
+    category: "Phones",
+    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=800",
     readTime: "12 Min Read"
   },
   {
-    title: "The Future of PlayStation VR2: Exclusive Tech Deep Dive",
-    category: "PlayStation",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=800",
-    readTime: "15 Min Read"
-  },
-  {
-    title: "Nintendo Switch 2 Architecture: What We Know So Far",
-    category: "Nintendo",
-    image: "https://images.unsplash.com/photo-1595303526913-c7037797ebe7?auto=format&fit=crop&q=80&w=800",
+    title: "iPad Pro M4: Is it Finally a Laptop Replacement?",
+    category: "Tablets",
+    image: "https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&q=80&w=800",
     readTime: "10 Min Read"
   },
   {
-    title: "Xbox Game Pass: The Technical Backbone of Cloud Gaming",
-    category: "Xbox",
-    image: "https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&q=80&w=800",
-    readTime: "13 Min Read"
-  },
-  {
-    title: "Red Dead Redemption 3: Speculative Physics and Lighting",
-    category: "Rockstar Games",
-    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80&w=800",
-    readTime: "8 Min Read"
-  },
-  {
-    title: "Uncharted: Legacy of Thieves - PS5 Performance Comparison",
-    category: "PlayStation",
-    image: "https://images.unsplash.com/photo-1622233114058-02f47ba4d7d6?auto=format&fit=crop&q=80&w=800",
+    title: "Samsung Galaxy Tab S10 Ultra: Defining the Android Canvas",
+    category: "Tablets",
+    image: "https://images.unsplash.com/photo-1589739900266-43b2843f4c12?auto=format&fit=crop&q=80&w=800",
     readTime: "14 Min Read"
   },
   {
-    title: "The Legend of Zelda: Technical evolution of Open Worlds",
-    category: "Nintendo",
-    image: "https://images.unsplash.com/photo-1516053303028-ae09f92e2043?auto=format&fit=crop&q=80&w=800",
+    title: "Sony WH-1000XM6: The New King of Active Noise Cancellation",
+    category: "Headphones",
+    image: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=800",
+    readTime: "9 Min Read"
+  },
+  {
+    title: "Apple AirPods Max 2 Review: Premium Audio Redefined",
+    category: "Headphones",
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800",
+    readTime: "8 Min Read"
+  },
+  {
+    title: "NZXT Player: Three - The Ultimate Pre-built Gaming Machine",
+    category: "PC",
+    image: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=800",
     readTime: "11 Min Read"
   },
   {
-    title: "Halo Infinite: Mastering the Slipspace Engine Optimization",
-    category: "Xbox",
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    readTime: "9 Min Read"
+    title: "MacBook Pro M4 Max: Performance Boundaries Shattered",
+    category: "PC",
+    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=800",
+    readTime: "15 Min Read"
   }
 ];
 
-const GamingSection = () => {
+const ReviewsSection = () => {
   return (
     <section className="py-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
       <div className="container-custom">
@@ -60,19 +60,19 @@ const GamingSection = () => {
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-4">
             <div className="w-2 h-8 bg-accent rounded-full" />
-            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">Gaming Intelligence</h2>
+            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">ViewSpree Reviews</h2>
           </div>
           <button className="py-2 px-8 border border-white/10 rounded-lg text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer flex items-center gap-2">
-            Explores Games
+            Explore Reviews
             <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 group-hover:bg-white/5 transition-all">
                <ArrowUpRight className="w-3 h-3" />
             </div>
           </button>
         </div>
 
-        {/* Gaming Intelligence Grid */}
+        {/* Reviews Intelligence Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {gamingArticles.map((article, index) => (
+          {reviewArticles.map((article, index) => (
             <div key={index} className="group cursor-pointer bg-[#202020] hover:bg-[#2a2a2c] transition-colors duration-300 rounded-[28px] p-4 border border-white/5 flex flex-col h-full">
               {/* Thumbnail Container */}
               <div className="relative aspect-16/10 rounded-[20px] overflow-hidden bg-[#121212] mb-5 w-full shrink-0">
@@ -97,7 +97,7 @@ const GamingSection = () => {
                   {article.title}
                 </h3>
                 <div className="flex items-center gap-2 text-white/50 text-[13px] font-medium">
-                  <Gamepad2 className="w-4 h-4 shrink-0" />
+                  <Star className="w-4 h-4 shrink-0" />
                   <span className="truncate">{article.category} • {article.readTime}</span>
                 </div>
               </div>
@@ -109,4 +109,4 @@ const GamingSection = () => {
   );
 };
 
-export default GamingSection;
+export default ReviewsSection;

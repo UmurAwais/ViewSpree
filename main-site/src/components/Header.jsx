@@ -10,7 +10,7 @@ const Header = () => {
     { name: 'AI', hasDropdown: false },
     { name: 'Reviews', hasDropdown: true },
     { name: 'Gadgets', hasDropdown: false },
-    { name: 'Science', hasDropdown: false },
+    { name: 'Tech', hasDropdown: false },
   ];
 
   return (

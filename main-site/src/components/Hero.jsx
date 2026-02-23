@@ -94,7 +94,7 @@ const Hero = () => {
                   <span className="text-white/30 text-[9px] font-black uppercase tracking-widest mb-1 block">
                     {story.category}
                   </span>
-                  <h4 className="text-white font-bold text-[15px] leading-tight group-hover:text-accent transition-colors line-clamp-2">
+                  <h4 className="text-white font-bold text-[15px] leading-tight group-hover:underline decoration-accent decoration-[3px] underline-offset-2 transition-all line-clamp-2">
                     {story.title}
                   </h4>
                 </div>

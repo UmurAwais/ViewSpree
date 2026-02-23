@@ -1,58 +1,58 @@
 import React from 'react';
-import { ArrowUpRight, Gamepad2 } from 'lucide-react';
+import { ArrowUpRight, Watch } from 'lucide-react';
 
-const gamingArticles = [
+const gadgetArticles = [
   {
-    title: "GTA VI Technical Analysis: Pushing RAGE Engine to the Limits",
-    category: "Rockstar Games",
-    image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800",
-    readTime: "12 Min Read"
-  },
-  {
-    title: "The Future of PlayStation VR2: Exclusive Tech Deep Dive",
-    category: "PlayStation",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=800",
-    readTime: "15 Min Read"
-  },
-  {
-    title: "Nintendo Switch 2 Architecture: What We Know So Far",
-    category: "Nintendo",
-    image: "https://images.unsplash.com/photo-1595303526913-c7037797ebe7?auto=format&fit=crop&q=80&w=800",
-    readTime: "10 Min Read"
-  },
-  {
-    title: "Xbox Game Pass: The Technical Backbone of Cloud Gaming",
-    category: "Xbox",
-    image: "https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&q=80&w=800",
-    readTime: "13 Min Read"
-  },
-  {
-    title: "Red Dead Redemption 3: Speculative Physics and Lighting",
-    category: "Rockstar Games",
-    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80&w=800",
-    readTime: "8 Min Read"
-  },
-  {
-    title: "Uncharted: Legacy of Thieves - PS5 Performance Comparison",
-    category: "PlayStation",
-    image: "https://images.unsplash.com/photo-1622233114058-02f47ba4d7d6?auto=format&fit=crop&q=80&w=800",
-    readTime: "14 Min Read"
-  },
-  {
-    title: "The Legend of Zelda: Technical evolution of Open Worlds",
-    category: "Nintendo",
-    image: "https://images.unsplash.com/photo-1516053303028-ae09f92e2043?auto=format&fit=crop&q=80&w=800",
+    title: "Sony bravia 9 Review: The Mini LED King Has Arrived",
+    category: "TVs",
+    image: "https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&q=80&w=800",
     readTime: "11 Min Read"
   },
   {
-    title: "Halo Infinite: Mastering the Slipspace Engine Optimization",
-    category: "Xbox",
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    title: "Google Pixel 9 Pro Fold: The Folding Phone, Perfected",
+    category: "Phones",
+    image: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&q=80&w=800",
+    readTime: "18 Min Read"
+  },
+  {
+    title: "Apple Watch Ultra 3 vs Garmin Epix Pro: Ultimate Outdoor Showdown",
+    category: "Wearables",
+    image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&q=80&w=800",
+    readTime: "14 Min Read"
+  },
+  {
+    title: "Sonos Era 300 Review: Spatial Audio Actually Matters",
+    category: "Speakers",
+    image: "https://images.unsplash.com/photo-1545454675-a63e2316e6f4?auto=format&fit=crop&q=80&w=800",
+    readTime: "10 Min Read"
+  },
+  {
+    title: "Dell XPS 14/16: The Bold New Era of Windows Laptops",
+    category: "Laptops",
+    image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&q=80&w=800",
+    readTime: "12 Min Read"
+  },
+  {
+    title: "Bose QuietComfort Ultra: Still The Gold Standard of ANC",
+    category: "Headphones",
+    image: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=800",
     readTime: "9 Min Read"
+  },
+  {
+    title: "MacBook Air M3: Why It's The Only Laptop Most People Need",
+    category: "Laptops",
+    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=800",
+    readTime: "13 Min Read"
+  },
+  {
+    title: "LG G4 OLED TV: Unlocking Mind-Blowing HDR Brightness",
+    category: "TVs",
+    image: "https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&q=80&w=800",
+    readTime: "15 Min Read"
   }
 ];
 
-const GamingSection = () => {
+const GadgetsSection = () => {
   return (
     <section className="py-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
       <div className="container-custom">
@@ -60,19 +60,19 @@ const GamingSection = () => {
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-4">
             <div className="w-2 h-8 bg-accent rounded-full" />
-            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">Gaming Intelligence</h2>
+            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">Gadgets</h2>
           </div>
           <button className="py-2 px-8 border border-white/10 rounded-lg text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer flex items-center gap-2">
-            Explores Games
+            Explore Gadgets
             <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 group-hover:bg-white/5 transition-all">
                <ArrowUpRight className="w-3 h-3" />
             </div>
           </button>
         </div>
 
-        {/* Gaming Intelligence Grid */}
+        {/* Gadgets Intelligence Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {gamingArticles.map((article, index) => (
+          {gadgetArticles.map((article, index) => (
             <div key={index} className="group cursor-pointer bg-[#202020] hover:bg-[#2a2a2c] transition-colors duration-300 rounded-[28px] p-4 border border-white/5 flex flex-col h-full">
               {/* Thumbnail Container */}
               <div className="relative aspect-16/10 rounded-[20px] overflow-hidden bg-[#121212] mb-5 w-full shrink-0">
@@ -97,7 +97,7 @@ const GamingSection = () => {
                   {article.title}
                 </h3>
                 <div className="flex items-center gap-2 text-white/50 text-[13px] font-medium">
-                  <Gamepad2 className="w-4 h-4 shrink-0" />
+                  <Watch className="w-4 h-4 shrink-0" />
                   <span className="truncate">{article.category} • {article.readTime}</span>
                 </div>
               </div>
@@ -109,4 +109,4 @@ const GamingSection = () => {
   );
 };
 
-export default GamingSection;
+export default GadgetsSection;

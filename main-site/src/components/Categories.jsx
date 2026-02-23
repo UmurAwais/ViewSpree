@@ -23,9 +23,9 @@ const categories = [
     count: '300+ Articles'
   },
   {
-    name: 'Science',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
-    count: '90+ Articles'
+    name: 'Tech',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    count: '350+ Articles'
   }
 ];
 
