@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Satoshi', sans-serif;
+  
+  --color-brand-bg: #0c0c0e;
+  --color-header-bg: #0c0c0e;
+  --color-accent: #007000;
+  --max-width-site: 1400px;
+}
+
+@layer base {
+  * {
+    font-family: inherit;
+  }
+  
+  html {
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  body {
+    @apply bg-brand-bg text-white font-sans antialiased selection:bg-accent selection:text-white;
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight font-bold;
+  }
+  
+  button, input, select, textarea {
+    font-family: inherit;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    @apply max-w-site mx-auto px-6;
+  }
+}
