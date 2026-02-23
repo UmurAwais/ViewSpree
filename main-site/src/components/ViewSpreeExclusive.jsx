@@ -39,7 +39,7 @@ const LatestNews = () => {
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-4">
             <div className="w-2 h-8 bg-accent rounded-full" />
-            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">ViewSpree News</h2>
+            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">ViewSpree Exclusive</h2>
           </div>
           <button className="py-2 px-6 border border-white/10 rounded-lg text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer">
               View All Intelligence
