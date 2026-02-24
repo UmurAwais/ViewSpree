@@ -29,7 +29,7 @@ const Hero = () => {
               <LazyImage 
                 src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1600" 
                 alt="Main Story" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700" 
               />
               <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
               
@@ -88,7 +88,7 @@ const Hero = () => {
                   <LazyImage 
                     src={story.image} 
                     alt="" 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    className="w-full h-full object-cover transition-transform duration-500" 
                   />
                 </div>
                 <div>

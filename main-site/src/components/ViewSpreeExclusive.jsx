@@ -60,7 +60,7 @@ const LatestNews = ({ onPostClick }) => {
                 <LazyImage 
                   src={item.image} 
                   alt="" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  className="w-full h-full object-cover transition-transform duration-700" 
                 />
               </div>
 

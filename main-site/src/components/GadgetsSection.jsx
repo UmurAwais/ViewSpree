@@ -80,7 +80,7 @@ const GadgetsSection = () => {
                 <LazyImage 
                   src={article.image} 
                   alt={article.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 
