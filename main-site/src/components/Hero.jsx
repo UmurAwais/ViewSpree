@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import LazyImage from './LazyImage';
 import { ArrowRight, Clock, ShieldCheck, Share2, Plus } from 'lucide-react';
 
 const sideHighlights = [
@@ -25,7 +26,7 @@ const Hero = () => {
           <div className="lg:col-span-9">
             <div className="group relative rounded-2xl overflow-hidden h-125 lg:h-170 border border-white/5 bg-[#121212] transition-all hover:ring-1 hover:ring-white/20">
               {/* Cinematic Backdrop */}
-              <img 
+              <LazyImage 
                 src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1600" 
                 alt="Main Story" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" 
@@ -84,7 +85,7 @@ const Hero = () => {
             {sideHighlights.map((story, index) => (
               <div key={index} className="group relative flex flex-col gap-4 px-2 pb-4 rounded-xl hover:bg-white/5 transition-all cursor-pointer">
                 <div className="aspect-VIDEO rounded-lg overflow-hidden border border-white/5">
-                  <img 
+                  <LazyImage 
                     src={story.image} 
                     alt="" 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 

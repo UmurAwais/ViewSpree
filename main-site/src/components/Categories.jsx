@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import LazyImage from './LazyImage';
 
 const categories = [
   {
@@ -33,10 +34,10 @@ const CategoryCard = ({ category }) => {
   return (
     <div className="group relative rounded-2xl overflow-hidden aspect-16/10 cursor-pointer bg-[#121212] border border-white/5 transition-all duration-500 hover:ring-1 hover:ring-white/20">
       {/* Background Image */}
-      <img 
+      <LazyImage 
         src={category.image} 
         alt={category.name}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100"
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
       
       {/* Cinematic Mask */}

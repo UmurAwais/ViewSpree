@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyImage from './LazyImage';
 import { ArrowUpRight, Cpu } from 'lucide-react';
 
 const aiArticles = [
@@ -76,10 +77,10 @@ const AISection = () => {
             <div key={index} className="group cursor-pointer bg-[#202020] hover:bg-[#2a2a2c] transition-colors duration-300 rounded-[28px] p-4 border border-white/5 flex flex-col h-full">
               {/* Thumbnail Container */}
               <div className="relative aspect-16/10 rounded-[20px] overflow-hidden bg-[#121212] mb-5 w-full shrink-0">
-                <img 
+                <LazyImage 
                   src={article.image} 
                   alt={article.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 opacity-100"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 

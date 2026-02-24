@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import LazyImage from './LazyImage';
 
 const newsData = [
   {
@@ -55,7 +56,7 @@ const LatestNews = () => {
             >
               {/* Thumbnail */}
               <div className="w-60 h-40 shrink-0 rounded-[20px] overflow-hidden bg-[#121212] relative">
-                <img 
+                <LazyImage 
                   src={item.image} 
                   alt="" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 

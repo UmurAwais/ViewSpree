@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Search as SearchIcon, X } from 'lucide-react';
+import LazyImage from './LazyImage';
 
 const Search = () => {
   const [isFocused, setIsFocused] = useState(false);
@@ -66,13 +67,13 @@ const Search = () => {
               </div>
               <div className="px-6 py-3 hover:bg-white/5 cursor-pointer flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 shrink-0 overflow-hidden">
-                   <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=600" alt="" className="opacity-40 group-hover:opacity-100 transition-opacity object-cover w-full h-full" />
+                <LazyImage src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=600" alt="" className="opacity-40 group-hover:opacity-100 transition-opacity object-cover w-full h-full" />
                 </div>
                 <span className="text-[14px] text-white/60 group-hover:text-white transition-colors">Ray Tracing Analysis v5.4.1</span>
               </div>
               <div className="px-6 py-3 hover:bg-white/5 cursor-pointer flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 shrink-0 overflow-hidden">
-                   <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&q=80&w=600" alt="" className="opacity-40 group-hover:opacity-100 transition-opacity object-cover w-full h-full" />
+                <LazyImage src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&q=80&w=600" alt="" className="opacity-40 group-hover:opacity-100 transition-opacity object-cover w-full h-full" />
                 </div>
                 <span className="text-[14px] text-white/60 group-hover:text-white transition-colors">Performance Benchmarks</span>
               </div>

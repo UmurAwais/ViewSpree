@@ -1,5 +1,6 @@
 import React from 'react';
 import { Flame, Clock, ArrowUpRight } from 'lucide-react';
+import LazyImage from './LazyImage';
 
 const mainStory = {
   title: "Sony Officially Announces PlayStation 6 Architecture: Built for 8K from the Ground Up",
@@ -63,7 +64,7 @@ const BreakingNews = () => {
           <div className="lg:w-2/3 group cursor-pointer flex flex-col relative overflow-hidden h-full">
              {/* Thumbnail Container */}
              <div className="relative aspect-video rounded-[20px] overflow-hidden bg-[#121212] mb-6 w-full">
-                <img 
+                <LazyImage 
                   src={mainStory.image} 
                   alt={mainStory.title}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"

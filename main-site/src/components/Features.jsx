@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import LazyImage from './LazyImage';
 
 const Features = () => {
   return (
@@ -36,7 +37,7 @@ const Features = () => {
           {/* Right Media Area */}
           <div className="flex-1 order-1 lg:order-2 w-full">
             <div className="rounded-[40px] overflow-hidden shadow-2xl border border-white/5 relative min-h-75 lg:min-h-125">
-              <img 
+              <LazyImage 
                 src="https://images.unsplash.com/photo-1635241161466-541f065683ba?auto=format&fit=crop&q=80&w=1200" 
                 alt="Advanced visual engine rendering" 
                 className="absolute inset-0 w-full h-full object-cover" 
