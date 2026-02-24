@@ -44,7 +44,7 @@ const sidebarStories = [
   }
 ];
 
-const BreakingNews = () => {
+const BreakingNews = ({ onPostClick }) => {
   return (
     <section className="pb-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
       <div className="container-custom">
@@ -61,7 +61,10 @@ const BreakingNews = () => {
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Main Story (Left - 65%) */}
-          <div className="lg:w-2/3 group cursor-pointer flex flex-col relative overflow-hidden h-full">
+          <div 
+            onClick={() => onPostClick && onPostClick(mainStory)}
+            className="lg:w-2/3 group cursor-pointer flex flex-col relative overflow-hidden h-full"
+          >
              {/* Thumbnail Container */}
              <div className="relative aspect-video rounded-[20px] overflow-hidden bg-[#121212] mb-6 w-full">
                 <LazyImage 

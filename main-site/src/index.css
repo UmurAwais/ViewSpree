@@ -38,3 +38,9 @@
     @apply max-w-site mx-auto px-6;
   }
 }
+
+.blurry-header {
+  background-color: rgba(12, 12, 14, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}

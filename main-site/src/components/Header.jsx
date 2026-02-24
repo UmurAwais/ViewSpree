@@ -4,7 +4,7 @@ import logo from '../assets/logo.png';
 import Button from './Button';
 import Search from './Search';
 
-const Header = () => {
+const Header = ({ onLogoClick }) => {
   const navLinks = [
     { name: 'Gaming', hasDropdown: false },
     { name: 'AI', hasDropdown: false },
@@ -14,12 +14,21 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 left-0 right-0 h-16 bg-header-bg border-b border-white/5 z-50 flex items-center shadow-2xl">
+    <header className="sticky top-0 left-0 right-0 h-16 blurry-header border-b border-white/5 z-50 flex items-center shadow-2xl">
       <div className="container-custom flex items-center justify-between w-full">
         
         {/* Left Section: Logo & Nav */}
         <div className="flex items-center gap-10">
-          <a href="/" className="flex items-center cursor-pointer group">
+          <a 
+            href="/" 
+            onClick={(e) => { 
+               if (onLogoClick) {
+                 e.preventDefault(); 
+                 onLogoClick(); 
+               }
+            }} 
+            className="flex items-center cursor-pointer group"
+          >
             <img src={logo} alt="ViewSpree" className="h-9 object-contain transition-opacity" />
           </a>
 

@@ -33,7 +33,7 @@ const newsData = [
   }
 ];
 
-const LatestNews = () => {
+const LatestNews = ({ onPostClick }) => {
   return (
     <section className="py-20 bg-brand-bg">
       <div className="container-custom">
@@ -52,6 +52,7 @@ const LatestNews = () => {
           {newsData.map((item, index) => (
             <div 
               key={index} 
+              onClick={() => onPostClick && onPostClick(item)}
               className="bg-[#202020] hover:bg-[#2a2a2c] transition-colors duration-300 rounded-[28px] p-4 flex items-center gap-6 cursor-pointer group border border-white/5"
             >
               {/* Thumbnail */}

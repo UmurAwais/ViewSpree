@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './components/Header'
 import AnnouncementBar from './components/AnnouncementBar'
 import Hero from './components/Hero'
@@ -13,8 +13,16 @@ import TechSection from './components/TechSection'
 import Features from './components/Features'
 import Footer from './components/Footer'
 import Newsletter from './components/Newsletter'
+import SinglePost from './components/SinglePost'
 
 const App = () => {
+  const [view, setView] = useState('home');
+  const [currentPost, setCurrentPost] = useState(null);
+
+  if (view === 'post') {
+    return <SinglePost post={currentPost} onNavigateHome={() => setView('home')} />
+  }
+
   return (
     <div className="min-h-screen bg-brand-bg font-sans">
       {/* Promotion Layer */}
@@ -25,10 +33,10 @@ const App = () => {
       
       {/* Content Layer */}
       <main>
-        <BreakingNews />
+        <BreakingNews onPostClick={(post) => { setCurrentPost(post); setView('post') }} />
         {/* <Hero /> */}
         <Categories />
-        <LatestNews />
+        <LatestNews onPostClick={(post) => { setCurrentPost(post); setView('post') }} />
         <GamingSection />
         <TechSection />
         <Features />
