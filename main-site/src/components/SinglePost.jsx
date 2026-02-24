@@ -65,10 +65,10 @@ const SinglePost = ({ post, onNavigateHome }) => {
             {/* Top Category Tags */}
             <div className="flex flex-wrap justify-start gap-4 mb-6">
               <span className="bg-white text-black px-5 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">
-                Spotlight
+                {post?.category || "Spotlight"}
               </span>
               <span className="bg-black/30 border border-white/30 text-white px-5 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full backdrop-blur-sm">
-                Unreal Engine 5 Core
+                ViewSpree Exclusive
               </span>
             </div>
 
@@ -91,11 +91,23 @@ const SinglePost = ({ post, onNavigateHome }) => {
         {/* --- Content Area --- */}
         <article className="w-full max-w-250 mx-auto px-6 lg:px-12 py-16 text-white text-[16px] leading-[1.8] font-normal font-sans">
           
+          <div className="flex items-center gap-4 mb-10 border-b border-white/10 pb-6">
+             <div className="text-white/40 text-[12px] font-bold uppercase tracking-wider">
+               {post?.date || post?.time || "RECENTLY PUBLISHED"}
+             </div>
+             {post?.author && (
+               <>
+                 <div className="w-1 h-1 rounded-full bg-white/20" />
+                 <div className="text-white/60 text-[12px] font-bold uppercase tracking-wider">
+                   BY {post.author}
+                 </div>
+               </>
+             )}
+          </div>
+
           <div className="max-w-250">
-            <p className="mb-8 font-medium text-white/90">
-              More than twenty years ago, Quentin Tarantino wrote a scene for <i className="text-white">Kill Bill</i> that never made it to screen—it had
-              stayed a legend, through old script pages and fan lore. Last week, that story came to life as The Lost
-              Chapter: Yuki's Revenge, for the first time made for fans.
+            <p className="mb-8 font-medium text-white/90 text-[20px] leading-relaxed">
+              {post?.description || "More than twenty years ago, Quentin Tarantino wrote a scene for Kill Bill that never made it to screen—it had stayed a legend, through old script pages and fan lore. Last week, that story came to life as The Lost Chapter: Yuki's Revenge, for the first time made for fans."}
             </p>
 
             <p className="mb-8">
