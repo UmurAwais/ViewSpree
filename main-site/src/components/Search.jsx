@@ -36,24 +36,52 @@ const Search = () => {
         )}
       </div>
 
-      {/* Results Dropdown - Minimalist */}
-      {isFocused && query.length > 2 && (
-        <div className="absolute top-full mt-3 left-0 right-0 bg-[#0c0c0e] border border-white/5 shadow-3xl rounded-3xl z-50 py-4 animate-in fade-in slide-in-from-top-2 duration-200">
-          <div className="px-6 py-2 text-[10px] font-black text-white/20 uppercase tracking-[4px] border-b border-white/5 mb-2">
-            Suggested
-          </div>
-          <div className="px-6 py-3 hover:bg-white/5 cursor-pointer flex items-center gap-4 group">
-            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 shrink-0 overflow-hidden">
-               <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=600" alt="" className="opacity-40 group-hover:opacity-100 transition-opacity object-cover w-full h-full" />
+      {/* Trending Topics / Results Dropdown */}
+      {isFocused && (
+        <div 
+          className="absolute top-full mt-3 left-0 right-0 bg-[#0c0c0e] border border-white/5 shadow-2xl rounded-3xl z-50 py-4 animate-in fade-in slide-in-from-top-2 duration-200"
+          onMouseDown={(e) => e.preventDefault()}
+        >
+          {query.length === 0 ? (
+            <div className="px-6 py-2">
+              <div className="text-[10px] font-black text-white/30 uppercase tracking-[3px] mb-4">
+                Trending Topics
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {['Rockstar Games', 'GTA VI', 'AI Tools', 'Next-gen Graphics', 'Tech Deals'].map((topic) => (
+                  <button 
+                    key={topic}
+                    onClick={() => setQuery(topic)}
+                    className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70 text-[13px] hover:bg-white/10 hover:text-white transition-all cursor-pointer font-medium"
+                  >
+                    {topic}
+                  </button>
+                ))}
+              </div>
             </div>
-            <span className="text-[14px] text-white/60 group-hover:text-white transition-colors">Ray Tracing Analysis v5.4.1</span>
-          </div>
-          <div className="px-6 py-3 hover:bg-white/5 cursor-pointer flex items-center gap-4 group">
-            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 shrink-0 overflow-hidden">
-               <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&q=80&w=600" alt="" className="opacity-40 group-hover:opacity-100 transition-opacity object-cover w-full h-full" />
+          ) : query.length > 2 ? (
+            <>
+              <div className="px-6 py-2 text-[10px] font-black text-white/30 uppercase tracking-[4px] border-b border-white/5 mb-2">
+                Suggested
+              </div>
+              <div className="px-6 py-3 hover:bg-white/5 cursor-pointer flex items-center gap-4 group">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 shrink-0 overflow-hidden">
+                   <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=600" alt="" className="opacity-40 group-hover:opacity-100 transition-opacity object-cover w-full h-full" />
+                </div>
+                <span className="text-[14px] text-white/60 group-hover:text-white transition-colors">Ray Tracing Analysis v5.4.1</span>
+              </div>
+              <div className="px-6 py-3 hover:bg-white/5 cursor-pointer flex items-center gap-4 group">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 shrink-0 overflow-hidden">
+                   <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&q=80&w=600" alt="" className="opacity-40 group-hover:opacity-100 transition-opacity object-cover w-full h-full" />
+                </div>
+                <span className="text-[14px] text-white/60 group-hover:text-white transition-colors">Performance Benchmarks</span>
+              </div>
+            </>
+          ) : (
+            <div className="px-6 py-4 text-[13px] text-white/40 text-center">
+              Type at least 3 characters to search...
             </div>
-            <span className="text-[14px] text-white/60 group-hover:text-white transition-colors">Performance Benchmarks</span>
-          </div>
+          )}
         </div>
       )}
     </div>
