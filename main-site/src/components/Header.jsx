@@ -5,7 +5,7 @@ import Button from './Button';
 import Search from './Search';
 import Navigation from './Navigation';
 
-const Header = () => {
+const Header = ({ onSubscribe }) => {
   return (
     <header className="sticky top-0 left-0 right-0 h-16 blurry-header border-b border-white/5 z-50 flex items-center shadow-2xl">
       <div className="container-custom flex items-center justify-between w-full">
@@ -31,7 +31,7 @@ const Header = () => {
               Login
             </Button>
 
-            <Button variant="primary">
+            <Button variant="primary" onClick={onSubscribe}>
               Subscribe
             </Button>
           </div>
