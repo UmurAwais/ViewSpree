@@ -1,59 +1,84 @@
-import React from 'react';
-import LazyImage from './LazyImage';
-import { ArrowUpRight, Gamepad2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
+import PostCard from './PostCard';
 
 const gamingArticles = [
   {
+    id: 'g1',
     title: "GTA VI Technical Analysis: Pushing RAGE Engine to the Limits",
+    excerpt: "Exploring the next generation of procedural animation and real-time physics in Rockstar's upcoming masterpiece.",
     category: "Rockstar Games",
     image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800",
-    readTime: "12 Min Read"
+    readTime: "12 Min Read",
+    date: "Feb 24, 2026"
   },
   {
+    id: 'g2',
     title: "The Future of PlayStation VR2: Exclusive Tech Deep Dive",
+    excerpt: "How foveated rendering and haptic feedback are redefining immersion in the virtual reality space.",
     category: "PlayStation",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=800",
-    readTime: "15 Min Read"
+    readTime: "15 Min Read",
+    date: "Feb 23, 2026"
   },
   {
+    id: 'g3',
     title: "Nintendo Switch 2 Architecture: What We Know So Far",
+    excerpt: "Analyzing the potential NVIDIA Blackwell-based SoC and the leap to DLSS 3.5 in portable gaming.",
     category: "Nintendo",
     image: "https://images.unsplash.com/photo-1595303526913-c7037797ebe7?auto=format&fit=crop&q=80&w=800",
-    readTime: "10 Min Read"
+    readTime: "10 Min Read",
+    date: "Feb 22, 2026"
   },
   {
+    id: 'g4',
     title: "Xbox Game Pass: The Technical Backbone of Cloud Gaming",
+    excerpt: "Inside the server blades powering millions of concurrent gaming sessions across the globe.",
     category: "Xbox",
     image: "https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&q=80&w=800",
-    readTime: "13 Min Read"
+    readTime: "13 Min Read",
+    date: "Feb 21, 2026"
   },
   {
+    id: 'g5',
     title: "Red Dead Redemption 3: Speculative Physics and Lighting",
+    excerpt: "What the next RAGE engine iteration could mean for dynamic weather and global illumination.",
     category: "Rockstar Games",
     image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80&w=800",
-    readTime: "8 Min Read"
+    readTime: "8 Min Read",
+    date: "Feb 20, 2026"
   },
   {
+    id: 'g6',
     title: "Uncharted: Legacy of Thieves - PS5 Performance Comparison",
+    excerpt: "A deep dive into the 120Hz mode and the ultra-fast I/O optimizations on Sony's flagship console.",
     category: "PlayStation",
     image: "https://images.unsplash.com/photo-1622233114058-02f47ba4d7d6?auto=format&fit=crop&q=80&w=800",
-    readTime: "14 Min Read"
+    readTime: "14 Min Read",
+    date: "Feb 19, 2026"
   },
   {
+    id: 'g7',
     title: "The Legend of Zelda: Technical evolution of Open Worlds",
+    excerpt: "How Nintendo masters the 'ChemEngine' to create deep, systemic interactions in vast landscapes.",
     category: "Nintendo",
     image: "https://images.unsplash.com/photo-1516053303028-ae09f92e2043?auto=format&fit=crop&q=80&w=800",
-    readTime: "11 Min Read"
+    readTime: "11 Min Read",
+    date: "Feb 18, 2026"
   },
   {
+    id: 'g8',
     title: "Halo Infinite: Mastering the Slipspace Engine Optimization",
+    excerpt: "The challenges of delivering 4K 120FPS in one of the most complex open-world shooters ever made.",
     category: "Xbox",
     image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    readTime: "9 Min Read"
+    readTime: "9 Min Read",
+    date: "Feb 17, 2026"
   }
 ];
 
 const GamingSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
       <div className="container-custom">
@@ -63,7 +88,10 @@ const GamingSection = () => {
             <div className="w-2 h-8 bg-accent rounded-full" />
             <h2 className="text-white text-3xl font-black uppercase tracking-tighter">Gaming Intelligence</h2>
           </div>
-          <button className="py-2 px-8 border border-white/10 rounded-lg text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer flex items-center gap-2">
+          <button 
+            onClick={() => navigate('/category/gaming')}
+            className="py-2 px-8 border border-white/10 rounded-lg text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer flex items-center gap-2"
+          >
             Explores Games
             <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 group-hover:bg-white/5 transition-all">
                <ArrowUpRight className="w-3 h-3" />
@@ -71,38 +99,10 @@ const GamingSection = () => {
           </button>
         </div>
 
-        {/* Gaming Intelligence Grid */}
+        {/* Gaming Intelligence Grid - Using shared PostCard */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {gamingArticles.map((article, index) => (
-            <div key={index} className="group cursor-pointer bg-[#202020] hover:bg-[#2a2a2c] transition-colors duration-300 rounded-[28px] p-4 border border-white/5 flex flex-col h-full">
-              {/* Thumbnail Container */}
-              <div className="relative aspect-16/10 rounded-[20px] overflow-hidden bg-[#121212] mb-5 w-full shrink-0">
-                <LazyImage 
-                  src={article.image} 
-                  alt={article.title}
-                  className="w-full h-full object-cover transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                
-                {/* Visual Category Badge on Hover */}
-                <div className="absolute top-4 left-4 transform -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <div className="bg-accent text-white px-3 py-1 rounded-sm text-[8px] font-black uppercase tracking-[2px] shadow-2xl">
-                    {article.category}
-                  </div>
-                </div>
-              </div>
-
-              {/* Text Content */}
-              <div className="flex flex-col gap-2 px-1 pb-1">
-                <h3 className="text-white font-bold text-[17px] leading-snug group-hover:underline decoration-accent decoration-[3px] underline-offset-2 transition-all line-clamp-2">
-                  {article.title}
-                </h3>
-                <div className="flex items-center gap-2 text-white/50 text-[13px] font-medium">
-                  <Gamepad2 className="w-4 h-4 shrink-0" />
-                  <span className="truncate">{article.category} • {article.readTime}</span>
-                </div>
-              </div>
-            </div>
+          {gamingArticles.map((article) => (
+            <PostCard key={article.id} post={article} />
           ))}
         </div>
       </div>

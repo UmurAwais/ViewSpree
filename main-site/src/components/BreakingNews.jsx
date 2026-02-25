@@ -123,7 +123,11 @@ const BreakingNews = ({ onPostClick }) => {
 
               <div className="flex flex-col gap-7 flex-1">
                 {sidebarStories.map((story, i) => (
-                  <div key={i} className="group flex flex-col gap-2 relative pl-6 cursor-pointer">
+                  <div 
+                  key={i} 
+                    onClick={() => onPostClick && onPostClick(story)}
+                    className="group flex flex-col gap-2 relative pl-6 cursor-pointer"
+                  >
                     {/* Timeline Line */}
                     <div className="absolute left-0.75 top-2 bottom-7 w-px bg-white/10 group-last:bg-transparent" />
                     {/* Timeline Node */}

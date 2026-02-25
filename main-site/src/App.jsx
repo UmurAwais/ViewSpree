@@ -5,6 +5,7 @@ import AnnouncementBar from './components/AnnouncementBar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import SinglePost from './components/SinglePost';
+import Category from './pages/Category';
 
 const Layout = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="post/:id" element={<SinglePost />} />
+        <Route path="category/:slug" element={<Category />} />
       </Route>
     </Routes>
   );

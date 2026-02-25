@@ -1,4 +1,4 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import LazyImage from './LazyImage';
 
@@ -31,8 +31,12 @@ const categories = [
 ];
 
 const CategoryCard = ({ category }) => {
+  const navigate = useNavigate();
   return (
-    <div className="group relative rounded-2xl overflow-hidden aspect-16/10 cursor-pointer bg-[#121212] border border-white/5 transition-all duration-500 hover:ring-1 hover:ring-white/20">
+    <div 
+      onClick={() => navigate(`/category/${category.name.toLowerCase()}`)}
+      className="group relative rounded-2xl overflow-hidden aspect-16/10 cursor-pointer bg-[#121212] border border-white/5 transition-all duration-500 hover:ring-1 hover:ring-white/20"
+    >
       {/* Background Image */}
       <LazyImage 
         src={category.image} 
