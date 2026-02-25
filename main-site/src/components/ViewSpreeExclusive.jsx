@@ -33,14 +33,18 @@ const newsData = [
   }
 ];
 
-const LatestNews = ({ onPostClick }) => {
+const LatestNews = ({ 
+  title = "ViewSpree Exclusive", 
+  items = newsData, 
+  onPostClick 
+}) => {
   return (
     <section className="py-20 bg-brand-bg">
       <div className="container-custom">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-4">
             <div className="w-2 h-8 bg-accent rounded-full" />
-            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">ViewSpree Exclusive</h2>
+            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">{title}</h2>
           </div>
           <button className="py-2 px-6 border border-white/10 rounded-lg text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer">
               View All Intelligence
@@ -49,14 +53,14 @@ const LatestNews = ({ onPostClick }) => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {newsData.map((item, index) => (
+          {items.map((item, index) => (
             <div 
               key={index} 
               onClick={() => onPostClick && onPostClick(item)}
-              className="bg-[#202020] hover:bg-[#2a2a2c] transition-colors duration-300 rounded-[28px] p-4 flex items-center gap-6 cursor-pointer group border border-white/5"
+              className="bg-[#121212] hover:bg-[#181818] transition-colors duration-300 rounded-[20px] p-2.5 flex items-center gap-6 cursor-pointer group border border-white/5"
             >
               {/* Thumbnail */}
-              <div className="w-60 h-40 shrink-0 rounded-[20px] overflow-hidden bg-[#121212] relative">
+              <div className="w-60 h-45 shrink-0 rounded-2xl overflow-hidden bg-[#121212] relative">
                 <LazyImage 
                   src={item.image} 
                   alt="" 

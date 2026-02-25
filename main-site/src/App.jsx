@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import SinglePost from './components/SinglePost';
 import Category from './pages/Category';
+import ScrollToTop from './components/ScrollToTop';
 
 const Layout = () => {
   return (
@@ -29,13 +30,16 @@ const Layout = () => {
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="post/:id" element={<SinglePost />} />
-        <Route path="category/:slug" element={<Category />} />
-      </Route>
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="post/:id" element={<SinglePost />} />
+          <Route path="category/:slug" element={<Category />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 

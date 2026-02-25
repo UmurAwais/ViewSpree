@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Filter, ChevronDown } from 'lucide-react';
 import Newsletter from '../components/Newsletter';
@@ -7,6 +7,7 @@ import LazyImage from '../components/LazyImage';
 import Button from '../components/Button';
 import CategoryFilters from '../components/CategoryFilters';
 import Categories from '../components/Categories';
+import LatestNews from '../components/ViewSpreeExclusive';
 import { categories } from '../data/categories';
 
 const categoryData = {
@@ -14,11 +15,27 @@ const categoryData = {
     title: "Gaming Intelligence",
     description: "Deep dives into game architecture, engine breakthroughs, and the future of interactive storytelling.",
     subcategories: [
-      { name: 'Rockstar Games', image: 'https://images.unsplash.com/photo-1580234811497-9bd7fd2f357b?auto=format&fit=crop&q=80&w=800' },
+      { name: 'Rockstar Games', image: 'https://cms-assets.unrealengine.com/AiKUh5PQCTaOFnmJDZJBfz/resize=width:900/output=format:webp/cmj3816rr1jv307ohfqesx8uf' },
       { name: 'PlayStation', image: 'https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&q=80&w=800' },
       { name: 'Nintendo', image: 'https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&q=80&w=800' },
       { name: 'XBOX', image: 'https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&q=80&w=800' },
       { name: 'EA Sports', image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800' }
+    ],
+    exclusive: [
+      {
+        date: 'FEB 24, 2026',
+        title: 'Project Dragon: Inside the Next Gen RPG from Rockstar',
+        description: 'Exclusive technical analysis of the new engine features being developed for their next unannounced title.',
+        category: 'Rockstar Games',
+        image: 'https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&q=80&w=800'
+      },
+      {
+        date: 'FEB 20, 2026',
+        title: 'The Future of VR: Sony Patent Reveals New Sense Controllers',
+        description: 'A deep dive into the haptic tech that could change how we interact with virtual worlds.',
+        category: 'PlayStation',
+        image: 'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&q=80&w=800'
+      }
     ]
   },
   ai: {
@@ -30,6 +47,22 @@ const categoryData = {
       { name: 'Vision', image: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=800' },
       { name: 'Ethics', image: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=800' },
       { name: 'Automation', image: 'https://images.unsplash.com/photo-1518433278981-2244247571cf?auto=format&fit=crop&q=80&w=800' }
+    ],
+    exclusive: [
+      {
+        date: 'FEB 22, 2026',
+        title: 'GPT-5 Architecture: What the Leaks Tell Us About Recursive Learning',
+        description: 'New research papers suggest OpenAI is shifting toward a modular approach for their next foundation model.',
+        category: 'LLMs',
+        image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800'
+      },
+      {
+        date: 'FEB 18, 2026',
+        title: 'Beyond Transformers: The Rise of Liquid Neural Networks',
+        description: 'How a new type of AI architecture could make real-time edge processing more efficient than ever.',
+        category: 'Automation',
+        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800'
+      }
     ]
   },
   tech: {
@@ -41,6 +74,22 @@ const categoryData = {
       { name: 'Cybersec', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800' },
       { name: 'Web3', image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800' },
       { name: 'Enterprise', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' }
+    ],
+    exclusive: [
+      {
+        date: 'FEB 21, 2026',
+        title: 'The Silicon Frontier: Inside the Quest for 1nm Chips',
+        description: 'TSMC and ASML are partnering on a new lithography technique that could extend Moores Law for another decade.',
+        category: 'Hardware',
+        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800'
+      },
+      {
+        date: 'FEB 17, 2026',
+        title: 'Data Sovereignty: The Rise of Sovereign Clouds in Europe',
+        description: 'How government regulations are forcing a massive architectural shift in how cloud giants store user data.',
+        category: 'Cloud',
+        image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800'
+      }
     ]
   },
   reviews: {
@@ -52,6 +101,22 @@ const categoryData = {
       { name: 'Audio', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800' },
       { name: 'Cameras', image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800' },
       { name: 'SmartHome', image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=800' }
+    ],
+    exclusive: [
+      {
+        date: 'FEB 23, 2026',
+        title: 'Titanium vs Carbon Fiber: The Evolution of Professional Gear',
+        description: 'Testing the thermal and structural limits of the newest high-end materials in consumer electronics.',
+        category: 'Laptops',
+        image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=800'
+      },
+      {
+        date: 'FEB 19, 2026',
+        title: 'The Perfect Frame: Analyzing Color Science Across Flagship Sensors',
+        description: 'Why specs don\'t tell the whole story when it comes to the "soul" of an image.',
+        category: 'Cameras',
+        image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800'
+      }
     ]
   },
   gadgets: {
@@ -63,6 +128,22 @@ const categoryData = {
       { name: 'Drones', image: 'https://images.unsplash.com/photo-1473968512647-3e44a224fe8f?auto=format&fit=crop&q=80&w=800' },
       { name: 'Tablets', image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=800' },
       { name: 'Accessories', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800' }
+    ],
+    exclusive: [
+      {
+        date: 'FEB 25, 2026',
+        title: 'Neural Links: The Next Stage of Human-Tech Interfacing',
+        description: 'How non-invasive EEG hardware is finally reaching consumer-ready latency for gaming and productivity.',
+        category: 'Wearables',
+        image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800'
+      },
+      {
+        date: 'FEB 15, 2026',
+        title: 'Autonomous Home: Matter 3.0 and the End of Ecosystem Walls',
+        description: 'Why your smart home is finally about to just "work" regardless of the brand on the box.',
+        category: 'SmartHome',
+        image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=800'
+      }
     ]
   }
 };
@@ -127,15 +208,34 @@ const placeholderPosts = [
 const CategoryPage = () => {
   const { slug } = useParams();
   const info = categoryData[slug] || categoryData.gaming;
+  const [activeFilter, setActiveFilter] = useState('Latest');
+  const [activeTags, setActiveTags] = useState([]);
   
   // Resolve Hero Image from central categories data
   const categoryMeta = categories.find(c => c.slug === slug) || categories[0];
   const heroImage = categoryMeta.image;
 
+  // Filter/Sort logic
+  let displayPosts = [...placeholderPosts];
+
+  // Apply Tag Filtering
+  if (activeTags.length > 0) {
+    displayPosts = displayPosts.filter(post => 
+      activeTags.some(tag => post.category.toLowerCase() === tag.toLowerCase())
+    );
+  }
+
+  // Apply Sorting
+  displayPosts.sort((a, b) => {
+    if (activeFilter === 'Trending') return b.id - a.id;
+    if (activeFilter === 'Most Read') return (parseInt(b.readTime) || 0) - (parseInt(a.readTime) || 0);
+    return 0; // Default (Latest)
+  });
+
   return (
     <div className="bg-brand-bg min-h-screen text-white">
       {/* --- Category Hero: Simplified & Premium --- */}
-      <div className="relative w-full py-16 lg:py-20 overflow-hidden bg-brand-bg border-b border-white/5">
+      <div className="relative w-full pt-16 pb-3 lg:pt-20 overflow-hidden bg-brand-bg">
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             
@@ -209,16 +309,30 @@ const CategoryPage = () => {
           items={info.subcategories}
         />
       )}
+      
+      {/* --- Category Exclusive Section --- */}
+      {info.exclusive && (
+        <LatestNews 
+          title={`${slug.charAt(0).toUpperCase() + slug.slice(1)} Exclusive`}
+          items={info.exclusive}
+        />
+      )}
 
       {/* --- Content Grid Section --- */}
       <section className="pt-8 pb-20">
         <div className="container-custom">
           {/* Componentized Filter Bar */}
-          <CategoryFilters />
+          <CategoryFilters 
+            activeFilter={activeFilter} 
+            onFilterChange={setActiveFilter}
+            activeTags={activeTags}
+            onTagsChange={setActiveTags}
+            availableTags={['News', 'Spotlight', 'Business', 'Hardware', 'Gaming', 'Tech']}
+          />
 
           {/* Posts Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20">
-            {placeholderPosts.map((post) => (
+            {displayPosts.map((post) => (
               <PostCard key={post.id} post={post} />
             ))}
           </div>
@@ -227,10 +341,9 @@ const CategoryPage = () => {
           <div className="flex justify-center">
             <Button 
               variant="secondary"
-              className="group relative px-12 py-5 font-black uppercase tracking-[4px] text-[12px] rounded-full hover:bg-accent hover:text-white transition-all duration-500 shadow-2xl overflow-hidden shadow-white/10"
+              className="group relative px-8 py-5 font-black uppercase tracking-[4px] text-[12px] rounded-2xl! bg-accent! hover:bg-accent/80! text-white transition-all duration-500 shadow-2xl overflow-hidden shadow-white/10"
             >
-              <span className="relative z-10 italic">Load More Articles</span>
-              <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+              <span className="relative z-10">Load More Articles</span>
             </Button>
           </div>
         </div>
