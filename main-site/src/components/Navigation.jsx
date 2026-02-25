@@ -10,6 +10,11 @@ const Navigation = () => {
       subcategories: ['Rockstar Games', 'PlayStation', 'Nintendo', 'XBOX']
     },
     { 
+      name: 'Tech', 
+      hasDropdown: true,
+      subcategories: ['Cybersecurity', 'Cloud Computing', 'Space Tech', 'Web3', 'Enterprise']
+    },
+    { 
       name: 'AI', 
       hasDropdown: true,
       subcategories: ['Machine Learning', 'Generative AI', 'Robotics', 'Tech Startups']
@@ -23,11 +28,6 @@ const Navigation = () => {
       name: 'Gadgets', 
       hasDropdown: true,
       subcategories: ['Smartphones', 'Wearables', 'Laptops', 'Tablets', 'Accessories']
-    },
-    { 
-      name: 'Tech', 
-      hasDropdown: true,
-      subcategories: ['Cybersecurity', 'Cloud Computing', 'Space Tech', 'Web3', 'Enterprise']
     },
   ];
 
