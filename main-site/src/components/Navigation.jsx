@@ -12,22 +12,22 @@ const Navigation = () => {
     { 
       name: 'Tech', 
       hasDropdown: true,
-      subcategories: ['Cybersecurity', 'Cloud Computing', 'Space Tech', 'Web3', 'Enterprise']
+      subcategories: ['Amazon', 'Apple', 'Meta', 'Google', 'Microsoft', 'Samsung', 'Business']
     },
     { 
       name: 'AI', 
       hasDropdown: true,
-      subcategories: ['Machine Learning', 'Generative AI', 'Robotics', 'Tech Startups']
+      subcategories: ['OpenAI', 'Google Gemini', 'Robotics', 'Tech Startups']
     },
     { 
       name: 'Reviews', 
       hasDropdown: true,
-      subcategories: ['Hardware', 'Software', 'Games', 'Smart Home', 'Audio']
+      subcategories: ['Games Reviews', 'PC/Laptop Reviews', 'Phone Reviews', 'Tablet Reviews', 'HeadPhone Reviews']
     },
     { 
       name: 'Gadgets', 
       hasDropdown: true,
-      subcategories: ['Smartphones', 'Wearables', 'Laptops', 'Tablets', 'Accessories']
+      subcategories: ['PC/Laptops', 'Phones', 'TVs', 'Headphones', 'Speakers', 'Wearables']
     },
   ];
 
