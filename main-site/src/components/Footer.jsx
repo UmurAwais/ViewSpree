@@ -1,13 +1,34 @@
 import React from 'react';
 import { Twitter, Github, Youtube, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 const Footer = () => {
   const footerLinks = {
-    Company: ['About', 'Careers', 'Brand', 'Press'],
-    Resources: ['Blog', 'Documentation', 'Marketplace', 'Tutorials'],
-    Support: ['Contact', 'Community', 'Status', 'FAQ'],
-    Legal: ['Privacy Policy', 'Terms of Service', 'Cookie Settings', 'Guidelines']
+    Company: [
+      { name: 'About', path: '/about' },
+      { name: 'Careers', path: '#' },
+      { name: 'Brand', path: '#' },
+      { name: 'Press', path: '#' }
+    ],
+    Resources: [
+      { name: 'Blog', path: '#' },
+      { name: 'Documentation', path: '#' },
+      { name: 'Marketplace', path: '#' },
+      { name: 'Tutorials', path: '#' }
+    ],
+    Support: [
+      { name: 'Contact', path: '#' },
+      { name: 'Community', path: '#' },
+      { name: 'Status', path: '#' },
+      { name: 'FAQ', path: '#' }
+    ],
+    Legal: [
+      { name: 'Privacy Policy', path: '#' },
+      { name: 'Terms of Service', path: '#' },
+      { name: 'Cookie Settings', path: '#' },
+      { name: 'Guidelines', path: '#' }
+    ]
   };
 
   return (
@@ -50,8 +71,8 @@ const Footer = () => {
               <h4 className="text-white/40 font-bold text-[11px] uppercase tracking-[1px] mb-4 font-display">{category}</h4>
               <ul className="space-y-3">
                 {links.map(link => (
-                  <li key={link}>
-                    <a href="#" className="text-white hover:text-accent text-[13px] font-medium transition-colors cursor-pointer">{link}</a>
+                  <li key={link.name}>
+                    <Link to={link.path} className="text-white hover:text-accent text-[13px] font-medium transition-colors cursor-pointer">{link.name}</Link>
                   </li>
                 ))}
               </ul>
