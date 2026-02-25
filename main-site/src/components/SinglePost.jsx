@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Play, ChevronLeft, ChevronRight, Mail, ChevronDown } from 'lucide-react';
-import Header from './Header';
-import Footer from './Footer';
 import LazyImage from './LazyImage';
 import Newsletter from './Newsletter';
 
-const SinglePost = ({ post, onNavigateHome }) => {
+const SinglePost = () => {
+  const location = useLocation();
+  const post = location.state?.post;
+
   // Embla Carousel setup
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -44,11 +46,8 @@ const SinglePost = ({ post, onNavigateHome }) => {
   ];
 
   return (
-    <div className="bg-[#111111] min-h-screen font-sans">
-      <Header onLogoClick={onNavigateHome} />
-
-      <main>
-        {/* --- Hero Section --- */}
+    <div className="bg-[#111111] min-h-screen font-sans w-full">
+      {/* --- Hero Section --- */}
         <div className="relative w-full h-[60vh] lg:h-[65vh] flex items-center overflow-hidden">
           {/* Background Image with Black Gradient Overlays */}
           <div className="absolute inset-0">
@@ -247,10 +246,6 @@ const SinglePost = ({ post, onNavigateHome }) => {
 
         {/* --- Download CTA Section --- */}
         <Newsletter />
-
-      </main>
-
-      <Footer />
     </div>
   );
 };
