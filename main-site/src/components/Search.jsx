@@ -40,7 +40,7 @@ const Search = () => {
       {/* Trending Topics / Results Dropdown */}
       {isFocused && (
         <div 
-          className="absolute top-full mt-3 left-0 right-0 bg-[#0c0c0e] border border-white/5 shadow-2xl rounded-3xl z-50 py-4 animate-in fade-in slide-in-from-top-2 duration-200"
+          className="absolute top-full mt-3 left-0 right-0 blurry-dropdown border border-white/10 shadow-2xl shadow-black/50 rounded-2xl z-50 py-4 animate-in fade-in slide-in-from-top-2 duration-200"
           onMouseDown={(e) => e.preventDefault()}
         >
           {query.length === 0 ? (
