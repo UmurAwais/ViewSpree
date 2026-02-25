@@ -51,7 +51,6 @@ const CategoryCard = ({ category }) => {
       <div className="absolute inset-0 p-6 flex flex-col justify-end">
         <div className="flex items-center justify-between">
           <div>
-            {/* <span className="text-accent text-[8px] font-black uppercase tracking-[3px] mb-1 block opacity-0 group-hover:opacity-100 transition-opacity">Discover</span> */}
             <h3 className="text-white font-black text-xl lg:text-2xl tracking-tighter flex items-center gap-3">
               {category.name}
               <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-black transform transition-all duration-500 hover:scale-110">
@@ -59,31 +58,32 @@ const CategoryCard = ({ category }) => {
               </div>
             </h3>
           </div>
-          {/* <div className="text-white/20 text-[10px] font-black uppercase tracking-[2px] hidden lg:block group-hover:text-white/60 transition-colors">
-            {category.count}
-          </div> */}
         </div>
       </div>
     </div>
   );
 };
 
-const Categories = () => {
+const Categories = ({ 
+  title = "Explore Intelligence", 
+  subtitle = "Navigate by Specialty", 
+  items = categories 
+}) => {
   return (
     <section className="py-20 bg-brand-bg relative overflow-hidden">
       <div className="container-custom">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-4">
             <div className="w-2 h-8 bg-accent rounded-full" />
-            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">Explore Intelligence</h2>
+            <h2 className="text-white text-3xl font-black uppercase tracking-tighter">{title}</h2>
           </div>
-          <p className="text-white/40 text-xs font-black uppercase tracking-[3px] hidden md:block">
-            Navigate by Specialty
+          <p className="text-white/40 text-[10px] font-black uppercase tracking-[3px] hidden md:block">
+            {subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-          {categories.map((category, index) => (
+          {items.map((category, index) => (
             <CategoryCard key={index} category={category} />
           ))}
         </div>

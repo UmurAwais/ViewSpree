@@ -9,10 +9,10 @@ const PostCard = ({ post }) => {
   return (
     <div 
       onClick={() => navigate(`/post/${post.id}`, { state: { post } })}
-      className="group cursor-pointer bg-[#202020] hover:bg-[#2a2a2c] transition-colors duration-300 rounded-[28px] p-4 border border-white/5 flex flex-col h-full"
+      className="group cursor-pointer bg-[#121212] hover:bg-[#181818] transition-colors duration-300 rounded-[20px] p-2.5 border border-white/5 flex flex-col h-full"
     >
       {/* Thumbnail Container */}
-      <div className="relative aspect-16/10 rounded-[20px] overflow-hidden bg-[#121212] mb-5 w-full shrink-0">
+      <div className="relative aspect-16/10 rounded-2xl overflow-hidden bg-[#121212] mb-5 w-full shrink-0">
         <LazyImage 
           src={post.image} 
           alt={post.title}
