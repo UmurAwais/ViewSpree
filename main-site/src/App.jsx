@@ -22,7 +22,7 @@ const Layout = ({ onSubscribe }) => {
       
       {/* Content Layer */}
       <main>
-        <Outlet />
+        <Outlet context={{ onSubscribe }} />
       </main>
 
       {/* Footer Layer */}

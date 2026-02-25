@@ -1,7 +1,8 @@
 import React from 'react';
-import { Twitter, Github, Youtube, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { Github, Youtube, MessageSquare, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import XIcon from './XIcon';
 
 const Footer = () => {
   const footerLinks = {
@@ -38,7 +39,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between pb-10 border-b border-white/5 gap-6">
           <div className="flex items-center gap-4">
             {[
-              { name: 'twitter', icon: Twitter },
+              { name: 'x', icon: XIcon },
               { name: 'discord', icon: MessageSquare },
               { name: 'github', icon: Github },
               { name: 'youtube', icon: Youtube }

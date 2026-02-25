@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import { Search as SearchIcon, X } from 'lucide-react';
 import LazyImage from './LazyImage';
 
-const Search = () => {
+const Search = ({ className = "" }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [query, setQuery] = useState('');
 
   return (
-    <div className="relative flex items-center">
+    <div className={`relative flex items-center ${className}`}>
       <div 
         className={`flex items-center bg-[#161618] border transition-all duration-300 ease-out shadow-inner ${
           isFocused 
-            ? 'w-72 md:w-112.5 border-white/20' 
-            : 'w-64 md:w-72 border-white/10'
-        } rounded-full h-11 px-5`}
+            ? 'border-white/20' 
+            : 'border-white/10'
+        } ${!className && (isFocused ? 'w-72 md:w-112.5' : 'w-64 md:w-72')} rounded-full h-11 px-5 w-full`}
       >
         <SearchIcon className="w-4.5 h-4.5 text-white/30 mr-3.5 shrink-0" />
         
