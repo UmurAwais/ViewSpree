@@ -7,12 +7,12 @@ import LazyImage from '../components/LazyImage';
 import Button from '../components/Button';
 import CategoryFilters from '../components/CategoryFilters';
 import Categories from '../components/Categories';
+import { categories } from '../data/categories';
 
 const categoryData = {
   gaming: {
     title: "Gaming Intelligence",
     description: "Deep dives into game architecture, engine breakthroughs, and the future of interactive storytelling.",
-    heroImage: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2000",
     subcategories: [
       { name: 'Rockstar Games', image: 'https://images.unsplash.com/photo-1580234811497-9bd7fd2f357b?auto=format&fit=crop&q=80&w=800' },
       { name: 'PlayStation', image: 'https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&q=80&w=800' },
@@ -24,7 +24,6 @@ const categoryData = {
   ai: {
     title: "AI Intelligence",
     description: "Tracking the frontier of neural networks, generative media, and the machines of tomorrow.",
-    heroImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2000",
     subcategories: [
       { name: 'LLMs', image: 'https://images.unsplash.com/photo-1620712943543-bcc4628c6757?auto=format&fit=crop&q=80&w=800' },
       { name: 'Robotics', image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800' },
@@ -36,7 +35,6 @@ const categoryData = {
   tech: {
     title: "Tech Industry",
     description: "Inside the boardrooms and labs of the giants shaping our digital reality.",
-    heroImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2000",
     subcategories: [
       { name: 'Software', image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800' },
       { name: 'Cloud', image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800' },
@@ -48,7 +46,6 @@ const categoryData = {
   reviews: {
     title: "Critical Reviews",
     description: "Unbiased, deeply technical evaluations of the latest hardware and software ecosystems.",
-    heroImage: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=2000",
     subcategories: [
       { name: 'Laptops', image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=800' },
       { name: 'Phones', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800' },
@@ -60,7 +57,6 @@ const categoryData = {
   gadgets: {
     title: "Next-Gen Gadgets",
     description: "Hands-on with the portable tech and home architecture that redefines daily life.",
-    heroImage: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&q=80&w=2000",
     subcategories: [
       { name: 'Wearables', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800' },
       { name: 'VR/AR', image: 'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&q=80&w=800' },
@@ -131,6 +127,10 @@ const placeholderPosts = [
 const CategoryPage = () => {
   const { slug } = useParams();
   const info = categoryData[slug] || categoryData.gaming;
+  
+  // Resolve Hero Image from central categories data
+  const categoryMeta = categories.find(c => c.slug === slug) || categories[0];
+  const heroImage = categoryMeta.image;
 
   return (
     <div className="bg-brand-bg min-h-screen text-white">
@@ -179,7 +179,7 @@ const CategoryPage = () => {
             <div className="flex-1 w-full max-w-2xl">
               <div className="relative aspect-16/10 rounded-4xl overflow-hidden border border-white/5 group">
                 <LazyImage 
-                  src={info.heroImage} 
+                  src={heroImage} 
                   alt={info.title}
                   className="w-full h-full object-cover"
                 />

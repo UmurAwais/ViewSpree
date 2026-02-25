@@ -1,34 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import LazyImage from './LazyImage';
-
-const categories = [
-  {
-    name: 'Gaming',
-    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800',
-    count: '240+ Articles'
-  },
-  {
-    name: 'AI',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
-    count: '180+ Articles'
-  },
-  {
-    name: 'Reviews',
-    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800',
-    count: '150+ Articles'
-  },
-  {
-    name: 'Gadgets',
-    image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&q=80&w=800',
-    count: '300+ Articles'
-  },
-  {
-    name: 'Tech',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
-    count: '350+ Articles'
-  }
-];
+import { categories } from '../data/categories';
 
 const CategoryCard = ({ category }) => {
   const navigate = useNavigate();
