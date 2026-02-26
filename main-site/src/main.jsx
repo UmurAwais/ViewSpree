@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import SinglePost from './components/SinglePost'
 import Category from './pages/Category'
 import About from './pages/About'
+import SearchPage from './pages/Search'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "search",
+        element: <SearchPage />,
       },
     ],
   },
