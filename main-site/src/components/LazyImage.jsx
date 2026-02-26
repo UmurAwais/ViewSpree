@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import favicon from '../assets/favicon.png';
+const favicon = '/favicon.webp';
 
 const LazyImage = ({ src, alt, className = '', ...props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
