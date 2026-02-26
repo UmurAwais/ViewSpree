@@ -52,7 +52,7 @@ const SearchPage = () => {
             </p>
             <button 
               onClick={() => navigate('/')}
-              className="mt-10 px-10 py-4 bg-white text-black rounded-lg font-black uppercase tracking-widest text-[11px] hover:bg-white/90 transition-all hover:scale-105"
+              className="mt-10 px-10 py-4 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-white/90 transition-all cursor-pointer"
             >
               Back to Store
             </button>
