@@ -43,7 +43,7 @@ const Categories = ({
   items = categories 
 }) => {
   return (
-    <section className="py-20 bg-brand-bg relative overflow-hidden">
+    <section className="py-10 md:py-20 bg-brand-bg relative overflow-hidden">
       <div className="container-custom">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-4">

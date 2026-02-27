@@ -46,7 +46,7 @@ const sidebarStories = [
 
 const BreakingNews = ({ onPostClick }) => {
   return (
-    <section className="pb-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
+    <section className="pb-10 md:pb-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
       <div className="container-custom">
         {/* Unified Header */}
         <div className="flex items-center justify-between mb-12">
