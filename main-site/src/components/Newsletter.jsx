@@ -8,7 +8,7 @@ const Newsletter = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-100 bg-accent/10 blur-[150px] rounded-full pointer-events-none opacity-50 mix-blend-screen" />
       
       <div className="container-custom relative z-10">
-        <div className="bg-[#0f0f12] border border-white/5 rounded-[40px] p-10 md:p-16 relative overflow-hidden group shadow-2xl shadow-black">
+        <div className="bg-[#0f0f12] border border-white/5 rounded-3xl md:rounded-[40px] p-6 md:p-16 relative overflow-hidden group shadow-2xl shadow-black">
           {/* Inner Glows */}
           <div className="absolute inset-0 bg-linear-to-br from-white/3 to-transparent pointer-events-none" />
           <div className="absolute top-0 right-0 w-125 h-125 bg-accent/5 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
@@ -49,7 +49,7 @@ const Newsletter = () => {
 
             {/* Right Form */}
             <div className="w-full lg:w-auto flex-1 max-w-lg">
-              <div className="bg-white/2 border border-white/5 rounded-4xl p-8 md:p-10 backdrop-blur-xl relative">
+              <div className="bg-white/2 border border-white/5 rounded-3xl md:rounded-4xl p-6 md:p-10 backdrop-blur-xl relative">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center border border-accent/20 shadow-[0_0_20px_rgba(0,112,0,0.2)]">
                     <Mail className="w-5 h-5 text-accent" />

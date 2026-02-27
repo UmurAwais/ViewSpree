@@ -42,7 +42,7 @@ const Search = ({ className = "" }) => {
           isFocused 
             ? 'border-white/20 bg-[#2a2a2e]' 
             : 'border-transparent hover:bg-[#2a2a2e]'
-        } rounded-lg h-10 px-4 w-64 md:w-80`}
+        } rounded-lg w-full h-full px-4`}
       >
         <SearchIcon className={`w-4 h-4 transition-colors shrink-0 mr-3 ${isFocused ? 'text-white' : 'text-white/40'}`} />
         
@@ -52,7 +52,7 @@ const Search = ({ className = "" }) => {
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setTimeout(() => setIsFocused(false), 200)}
-          placeholder="Search store"
+          placeholder="Search Here"
           className="bg-transparent border-none outline-none text-[13px] text-white w-full placeholder:text-white/40 font-sans font-medium"
         />
 

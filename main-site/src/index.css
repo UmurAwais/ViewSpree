@@ -35,7 +35,7 @@
 
 @layer utilities {
   .container-custom {
-    @apply max-w-site mx-auto px-6;
+    @apply max-w-site mx-auto px-4 sm:px-6;
   }
 }
 

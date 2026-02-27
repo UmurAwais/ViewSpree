@@ -21,13 +21,13 @@ const CategoryCard = ({ category }) => {
       <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
       
       {/* Content */}
-      <div className="absolute inset-0 p-6 flex flex-col justify-end">
+      <div className="absolute inset-0 p-3 md:p-6 flex flex-col justify-end">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-white font-black text-xl lg:text-2xl tracking-tighter flex items-center gap-3">
+            <h3 className="text-white font-black text-sm sm:text-lg lg:text-2xl tracking-tighter flex items-center gap-2 md:gap-3">
               {category.name}
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-black transform transition-all duration-500 hover:scale-110">
-                <ArrowUpRight className="w-4 h-4" />
+              <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-black transform transition-all duration-500 hover:scale-110 shrink-0">
+                <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
               </div>
             </h3>
           </div>
@@ -55,7 +55,7 @@ const Categories = ({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-5">
           {items.map((category, index) => (
             <CategoryCard key={index} category={category} />
           ))}

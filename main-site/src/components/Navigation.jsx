@@ -33,7 +33,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="hidden lg:flex items-center gap-6 h-full text-white/90">
+    <nav className="hidden lg:flex items-center gap-4 xl:gap-8 h-full text-white/90">
       {navLinks.map((link) => (
         <div key={link.name} className="relative group/nav h-16 flex items-center">
           <Link

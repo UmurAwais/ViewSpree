@@ -66,7 +66,7 @@ const BreakingNews = ({ onPostClick }) => {
             className="lg:w-2/3 group cursor-pointer flex flex-col relative overflow-hidden h-full"
           >
              {/* Thumbnail Container */}
-             <div className="relative aspect-video rounded-[20px] overflow-hidden bg-[#121212] mb-6 w-full">
+             <div className="relative aspect-video rounded-xl md:rounded-[20px] overflow-hidden bg-[#121212] mb-4 md:mb-6 w-full shadow-2xl">
                 <LazyImage 
                   src={mainStory.image} 
                   alt={mainStory.title}
@@ -75,32 +75,32 @@ const BreakingNews = ({ onPostClick }) => {
                 <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
                 
                 {/* Overlaid Title & Metadata */}
-                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-accent text-white px-3 py-1.5 rounded-sm text-[10px] font-black uppercase tracking-[2px] shadow-2xl flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                      {mainStory.category}
+                <div className="absolute inset-0 p-4 md:p-8 flex flex-col justify-end">
+                  <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                    <div className="bg-accent text-white px-2 md:px-3 py-1 md:py-1.5 rounded-sm text-[8px] md:text-[10px] font-black uppercase tracking-[2px] shadow-2xl flex items-center gap-2">
+                       <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-white animate-pulse" />
+                       {mainStory.category}
                     </div>
-                    <div className="flex items-center gap-2 text-white/90 text-[11px] font-black uppercase tracking-widest bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-sm">
-                      <Clock className="w-3.5 h-3.5" />
-                      {mainStory.time}
+                    <div className="flex items-center gap-2 text-white/90 text-[9px] md:text-[11px] font-black uppercase tracking-widest bg-black/40 backdrop-blur-sm px-2 md:px-3 py-1 md:py-1.5 rounded-sm">
+                       <Clock className="w-3 md:w-3.5 h-3 md:h-3.5" />
+                       {mainStory.time}
                     </div>
                   </div>
-                  <h3 className="text-white font-black text-3xl md:text-4xl leading-[1.1] tracking-tighter group-hover:underline decoration-accent decoration-[3px] underline-offset-4 transition-all w-11/12 xl:w-4/5">
+                  <h3 className="text-white font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-[1.1] tracking-tighter group-hover:underline decoration-accent decoration-[3px] underline-offset-4 transition-all w-full md:w-11/12 xl:w-4/5">
                     {mainStory.title}
                   </h3>
                 </div>
               </div>
 
               {/* Excerpt Container */}
-              <div className="flex flex-col gap-3 px-2 pb-2">
-                <p className="text-white/60 text-lg leading-relaxed font-normal">
+              <div className="flex flex-col gap-2 md:gap-3 px-1 md:px-2 pb-2">
+                <p className="text-white/60 text-base md:text-lg leading-relaxed font-normal line-clamp-2 sm:line-clamp-none">
                   {mainStory.description}
                 </p>
-                <div className="mt-3 flex items-center gap-3 text-white/40 text-[12px] font-bold uppercase tracking-wider">
+                <div className="mt-2 md:mt-3 flex items-center gap-3 text-white/40 text-[10px] md:text-[12px] font-bold uppercase tracking-wider">
                   <span>By {mainStory.author}</span>
                   <div className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="group-hover:text-white transition-colors flex items-center gap-1">Read Full Story <ArrowUpRight className="w-3.5 h-3.5" /></span>
+                  <span className="group-hover:text-white transition-colors flex items-center gap-1">Read Full Story <ArrowUpRight className="w-3 md:w-3.5 h-3 md:h-3.5" /></span>
                 </div>
               </div>
           </div>

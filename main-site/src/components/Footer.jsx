@@ -60,20 +60,20 @@ const Footer = () => {
         </div>
 
         {/* Links Grid */}
-        <div className="py-12 flex flex-wrap gap-x-24 gap-y-12">
+        <div className="py-12 grid grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
           {/* Logo Column */}
-          <div className="w-full md:w-auto shrink-0 mb-4 md:mb-0">
+          <div className="col-span-2 lg:col-span-1 flex items-start justify-center lg:justify-start lg:mb-0 border-b lg:border-0 border-white/5 pb-8 lg:pb-0 mb-4">
              <img src={logo} alt="ViewSpree" className="h-8 opacity-90" />
           </div>
 
           {/* Links Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category} className="flex-1 min-w-37.5 md:min-w-30">
-              <h4 className="text-white/40 font-bold text-[11px] uppercase tracking-[1px] mb-4 font-display">{category}</h4>
-              <ul className="space-y-3">
+            <div key={category} className="flex flex-col items-center lg:items-start text-center lg:text-left">
+              <h4 className="text-white/40 font-bold text-[11px] uppercase tracking-[1px] mb-6 font-display">{category}</h4>
+              <ul className="space-y-4">
                 {links.map(link => (
                   <li key={link.name}>
-                    <Link to={link.path} className="text-white hover:text-accent text-[13px] font-medium transition-colors cursor-pointer">{link.name}</Link>
+                    <Link to={link.path} className="text-white hover:text-accent text-[14px] font-medium transition-colors cursor-pointer block">{link.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -83,14 +83,14 @@ const Footer = () => {
 
         {/* Legal Text */}
         <div className="pt-8 border-t border-white/5 mb-12">
-          <p className="text-[#a0a0a0] text-[12px] leading-relaxed font-normal">
+          <p className="text-[#a0a0a0] text-[12px] leading-relaxed font-normal text-center lg:text-left">
             © 2026 ViewSpree. All rights reserved. ViewSpree is a leading independent technology and gaming publication dedicated to comprehensive hardware reviews, software analysis, and industry news. ViewSpree, the ViewSpree logo, ViewSpree Intelligence, and ViewSpree Exclusive are properties of ViewSpree. All other trademarks, product names, and company logos are the property of their respective owners. We operate independently and may earn affiliate commissions from recommended retail links.
           </p>
         </div>
 
         {/* Bottom Bar Options */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-          <ul className="flex flex-wrap items-center gap-6">
+          <ul className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
             {['Terms of Service', 'Privacy Policy', 'Editorial Guidelines'].map(link => (
               <li key={link}>
                 <a href="#" className="text-white hover:text-accent text-[13px] font-medium transition-colors cursor-pointer">{link}</a>

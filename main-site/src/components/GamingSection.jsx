@@ -90,7 +90,7 @@ const GamingSection = () => {
           </div>
           <button 
             onClick={() => navigate('/category/gaming')}
-            className="py-2 px-8 border border-white/10 rounded-lg text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer flex items-center gap-2"
+            className="hidden md:flex py-2 px-8 border border-white/10 rounded-lg text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer items-center gap-2 group"
           >
             Explores Games
             <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 group-hover:bg-white/5 transition-all">
@@ -99,11 +99,22 @@ const GamingSection = () => {
           </button>
         </div>
 
-        {/* Gaming Intelligence Grid - Using shared PostCard */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Gaming Intelligence Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {gamingArticles.map((article) => (
             <PostCard key={article.id} post={article} />
           ))}
+        </div>
+
+        {/* Mobile Action Button */}
+        <div className="mt-10 flex md:hidden w-full">
+          <button 
+            onClick={() => navigate('/category/gaming')}
+            className="w-full py-4 border border-white/10 rounded-xl text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer flex items-center justify-center gap-3"
+          >
+            Explore Gaming Intelligence
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </section>

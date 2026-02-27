@@ -12,7 +12,7 @@ const PostCard = ({ post }) => {
       className="group cursor-pointer bg-[#121212] hover:bg-[#181818] transition-colors duration-300 rounded-[20px] p-2.5 border border-white/5 flex flex-col h-full"
     >
       {/* Thumbnail Container */}
-      <div className="relative aspect-16/10 rounded-2xl overflow-hidden bg-[#121212] mb-5 w-full shrink-0">
+      <div className="relative aspect-16/10 rounded-2xl overflow-hidden bg-[#121212] mb-3 md:mb-5 w-full shrink-0">
         <LazyImage 
           src={post.image} 
           alt={post.title}
@@ -29,20 +29,20 @@ const PostCard = ({ post }) => {
       </div>
 
       {/* Text Content */}
-      <div className="flex flex-col gap-3 px-1 pb-1 grow">
-        <h3 className="text-white font-bold text-[18px] leading-snug group-hover:underline decoration-accent decoration-[3px] underline-offset-2 transition-all line-clamp-2">
+      <div className="flex flex-col gap-2 md:gap-3 px-0.5 md:px-1 pb-1 grow">
+        <h3 className="text-white font-bold text-sm sm:text-base md:text-[18px] leading-tight md:leading-snug group-hover:underline decoration-accent decoration-[3px] underline-offset-2 transition-all line-clamp-2">
           {post.title}
         </h3>
         
         {post.excerpt && (
-          <p className="text-white/50 text-[14px] leading-relaxed line-clamp-2">
+          <p className="text-white/50 text-[11px] md:text-[14px] leading-relaxed line-clamp-2 hidden sm:block">
             {post.excerpt}
           </p>
         )}
 
-        <div className="mt-auto pt-2 flex items-center gap-2 text-white/40 text-[12px] font-medium">
-          <Gamepad2 className="w-4 h-4 shrink-0" />
-          <span className="truncate">{post.date} • {post.readTime} Read</span>
+        <div className="mt-auto pt-1 md:pt-2 flex items-center gap-2 text-white/40 text-[9px] md:text-[12px] font-medium">
+          <Gamepad2 className="w-3 h-3 md:w-4 md:h-4 shrink-0" />
+          <span className="truncate">{post.date} • {post.readTime}</span>
         </div>
       </div>
     </div>

@@ -36,7 +36,7 @@ const Features = () => {
 
           {/* Right Media Area */}
           <div className="flex-1 order-1 lg:order-2 w-full">
-            <div className="rounded-[40px] overflow-hidden shadow-2xl border border-white/5 relative min-h-75 lg:min-h-125">
+            <div className="rounded-3xl md:rounded-[40px] overflow-hidden shadow-2xl border border-white/5 relative min-h-60 sm:min-h-75 lg:min-h-125">
               <LazyImage 
                 src="https://images.unsplash.com/photo-1635241161466-541f065683ba?auto=format&fit=crop&q=80&w=1200" 
                 alt="Advanced visual engine rendering" 
