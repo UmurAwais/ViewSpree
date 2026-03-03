@@ -59,7 +59,13 @@ const LatestNews = ({
           {items.map((item, index) => (
             <div 
               key={index} 
-              onClick={() => onPostClick && onPostClick(item)}
+              onClick={() => {
+                if (onPostClick) {
+                  onPostClick(item);
+                } else {
+                  navigate(`/post/${item.id || 1}`);
+                }
+              }}
               className="bg-[#121212] hover:bg-[#181818] transition-colors duration-300 rounded-[20px] p-2 md:p-2.5 flex flex-row items-center gap-3 md:gap-6 cursor-pointer group border border-white/5"
             >
               {/* Thumbnail */}
@@ -67,7 +73,7 @@ const LatestNews = ({
                 <LazyImage 
                   src={item.image} 
                   alt="" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  className="w-full h-full object-cover transition-transform duration-700" 
                 />
               </div>
 
