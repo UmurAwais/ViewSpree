@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Categories from '../components/Categories';
 import BreakingNews from '../components/BreakingNews';
+import TrendingNewsSlider from '../components/TrendingNewsSlider';
 import LatestNews from '../components/ViewSpreeExclusive';
 import GamingSection from '../components/GamingSection';
 import AISection from '../components/AISection';
@@ -20,6 +21,7 @@ const Home = () => {
 
   return (
     <>
+      <TrendingNewsSlider onPostClick={handlePostClick} />
       <BreakingNews onPostClick={handlePostClick} />
       <Categories />
       <LatestNews onPostClick={handlePostClick} />
