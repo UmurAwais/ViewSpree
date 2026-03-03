@@ -26,8 +26,8 @@ const Footer = () => {
     ],
     Legal: [
       { name: 'Privacy Policy', path: '/privacy-policy' },
-      { name: 'Terms of Service', path: '/privacy-policy' },
-      { name: 'Cookie Settings', path: '#' },
+      { name: 'Terms of Service', path: '/terms-of-service' },
+      { name: 'Cookie Settings', path: '/cookie-settings' },
       { name: 'Guidelines', path: '#' }
     ]
   };
@@ -91,9 +91,13 @@ const Footer = () => {
         {/* Bottom Bar Options */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
           <ul className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
-            {['Terms of Service', 'Privacy Policy', 'Editorial Guidelines'].map(link => (
-              <li key={link}>
-                <a href="#" className="text-white hover:text-accent text-[13px] font-medium transition-colors cursor-pointer">{link}</a>
+            {[
+              { name: 'Terms of Service', path: '/terms-of-service' },
+              { name: 'Privacy Policy', path: '/privacy-policy' },
+              { name: 'Editorial Guidelines', path: '#' }
+            ].map(link => (
+              <li key={link.name}>
+                <Link to={link.path} className="text-white hover:text-accent text-[13px] font-medium transition-colors cursor-pointer">{link.name}</Link>
               </li>
             ))}
           </ul>

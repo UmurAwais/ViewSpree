@@ -9,6 +9,8 @@ import Category from './pages/Category'
 import About from './pages/About'
 import SearchPage from './pages/Search'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
+import CookieSettings from './pages/CookieSettings'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: "privacy-policy",
         element: <PrivacyPolicy />,
+      },
+      {
+        path: "terms-of-service",
+        element: <TermsOfService />,
+      },
+      {
+        path: "cookie-settings",
+        element: <CookieSettings />,
       },
     ],
   },

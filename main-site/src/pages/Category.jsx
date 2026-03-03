@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useOutletContext } from 'react-router-dom';
 import { Filter, ChevronDown } from 'lucide-react';
 import Newsletter from '../components/Newsletter';
 import PostCard from '../components/PostCard';
@@ -207,9 +207,17 @@ const placeholderPosts = [
 
 const CategoryPage = () => {
   const { slug } = useParams();
+  const { onSubscribe } = useOutletContext();
   const info = categoryData[slug] || categoryData.gaming;
   const [activeFilter, setActiveFilter] = useState('Latest');
   const [activeTags, setActiveTags] = useState([]);
+
+  const scrollToContent = () => {
+    const element = document.getElementById('category-content');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   
   // Resolve Hero Image from central categories data
   const categoryMeta = categories.find(c => c.slug === slug) || categories[0];
@@ -262,16 +270,17 @@ const CategoryPage = () => {
               <div className="flex items-center gap-6 pt-4">
                 <Button 
                   variant="secondary" 
-                  className="px-10 py-4 rounded-xl text-sm font-black uppercase tracking-widest bg-accent! text-white hover:bg-accent/80! transition-all duration-300"
+                  onClick={onSubscribe}
+                  className="px-10 py-4 rounded-xl text-sm font-black uppercase tracking-widest bg-accent! text-white hover:bg-accent/80! transition-all duration-300 flex items-center gap-2"
                 >
                   Join The Space
                 </Button>
-                <Button 
-                  variant="ghost"
-                  className="px-6 py-4 text-sm font-black uppercase tracking-widest transition-colors text-white/40"
+                <button 
+                  onClick={scrollToContent}
+                  className="px-6 py-4 text-sm font-black uppercase tracking-widest transition-colors text-white/40 hover:text-white flex items-center gap-2 cursor-pointer group"
                 >
                   View Data
-                </Button>
+                </button>
               </div>
             </div>
 
@@ -302,13 +311,15 @@ const CategoryPage = () => {
       </div>
 
       {/* --- Subcategories Section --- */}
-      {info.subcategories && (
-        <Categories 
-          title={`Discover ${slug.charAt(0).toUpperCase() + slug.slice(1)}`}
-          subtitle="Navigate by Specialty"
-          items={info.subcategories}
-        />
-      )}
+      <div id="category-content">
+        {info.subcategories && (
+          <Categories 
+            title={`Discover ${slug.charAt(0).toUpperCase() + slug.slice(1)}`}
+            subtitle="Navigate by Specialty"
+            items={info.subcategories}
+          />
+        )}
+      </div>
       
       {/* --- Category Exclusive Section --- */}
       {info.exclusive && (
