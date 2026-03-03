@@ -64,9 +64,15 @@ const PostSidebar = () => {
 
   return (
     <aside className="sticky top-28 space-y-16 h-fit w-full">
-      {/* Search Widget - Using Site Search Component */}
-      <div className="w-full">
-         <Search className="w-full" />
+      {/* Search Module - Unique to Sidebar */}
+      <div>
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-2 h-8 bg-accent rounded-full" />
+          <h2 className="text-white text-xl font-black font-display uppercase tracking-widest">Search</h2>
+        </div>
+        <div >
+           <Search className="w-full h-11" />
+        </div>
       </div>
 
       {/* Trending Briefings */}
