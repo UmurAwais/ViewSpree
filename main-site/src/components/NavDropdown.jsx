@@ -5,7 +5,7 @@ const NavDropdown = ({ subcategories }) => {
   if (!subcategories || subcategories.length === 0) return null;
 
   return (
-    <div className="absolute top-[50%] left-0 pt-0.5 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 translate-y-2 group-hover/nav:translate-y-0 z-50 pointer-events-none group-hover/nav:pointer-events-auto">
+    <div className="absolute top-[65%] left-0 pt-0.5 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 translate-y-2 group-hover/nav:translate-y-0 z-50 pointer-events-none group-hover/nav:pointer-events-auto">
       {/* Main Container matching the screenshot exactly */}
       <div className="w-64 bg-[#1a1a1e] border border-white/5 rounded-[28px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] p-2 flex flex-col gap-1 backdrop-blur-3xl overflow-hidden">
         
