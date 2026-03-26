@@ -27,9 +27,22 @@ const Header = ({ onSubscribe }) => {
     }
   }, [isMenuOpen, isSearchOpen]);
 
+  // Robust Header Styles to bypass any CSS build/purging issues on Vercel
+  const headerStyle = {
+    backgroundColor: 'rgba(18, 18, 18, 0.4)',
+    backdropFilter: 'blur(32px)',
+    WebkitBackdropFilter: 'blur(32px)',
+    zIndex: 100,
+    transform: 'translateZ(0)',
+    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+  };
+
   return (
     <>
-      <header className="sticky top-0 left-0 right-0 h-14 md:h-16 blurry-header border-b border-white/5 z-100 flex items-center shadow-2xl">
+      <header 
+        style={headerStyle}
+        className="sticky top-0 left-0 right-0 h-14 md:h-16 border-b border-white/5 flex items-center shadow-2xl"
+      >
         <div className="container-custom flex items-center justify-between w-full">
           
           {/* Left Section: Logo & Nav */}
@@ -82,7 +95,8 @@ const Header = ({ onSubscribe }) => {
 
       {/* Mobile Search Overlay */}
       <div 
-        className={`fixed inset-0 z-200 blurry-header transition-all duration-500 ease-out flex flex-col ${
+        style={headerStyle}
+        className={`fixed inset-0 z-200 transition-all duration-500 ease-out flex flex-col ${
           isSearchOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 invisible'
         }`}
       >
