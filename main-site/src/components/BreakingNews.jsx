@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Flame, Clock, ArrowUpRight } from 'lucide-react';
 import LazyImage from './LazyImage';
-import Loader from './Loader';
-import { fetchPosts } from '../lib/wordpress';
+import { fetchPostsByCategory } from '../lib/wordpress';
+import { GridSkeleton } from './Skeleton';
 
 const BreakingNews = ({ onPostClick }) => {
   const [posts, setPosts] = useState([]);
@@ -10,7 +10,8 @@ const BreakingNews = ({ onPostClick }) => {
 
   useEffect(() => {
     async function loadData() {
-      const fetched = await fetchPosts({ per_page: 7 });
+      // Fetching specifically from the 'breaking-news' WordPress category
+      const fetched = await fetchPostsByCategory('breaking-news', 7);
       setPosts(fetched);
       setLoading(false);
     }
@@ -19,9 +20,15 @@ const BreakingNews = ({ onPostClick }) => {
 
   if (loading) {
     return (
-       <div className="py-20 flex justify-center items-center bg-brand-bg">
-          <Loader />
-       </div>
+       <section className="py-20 bg-brand-bg md:border-b md:border-white/5 relative overflow-hidden">
+          <div className="container-custom">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="w-2 h-8 bg-white/5 rounded-full" />
+              <div className="w-48 h-8 bg-white/5 rounded-md animate-pulse" />
+            </div>
+            <GridSkeleton count={4} />
+          </div>
+       </section>
     );
   }
 

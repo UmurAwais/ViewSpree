@@ -3,7 +3,7 @@ import { ArrowRight, Clock, Coffee } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import LazyImage from './LazyImage';
-import { fetchPosts } from '../lib/wordpress';
+import { fetchPostsByCategory } from '../lib/wordpress';
 import { HeroSkeleton } from './Skeleton';
 
 const TrendingNewsSlider = ({ onPostClick }) => {
@@ -13,7 +13,8 @@ const TrendingNewsSlider = ({ onPostClick }) => {
   useEffect(() => {
     async function getNews() {
       try {
-        const posts = await fetchPosts({ per_page: 3 });
+        // Fetching specifically from the new 'trending-now' WordPress category
+        const posts = await fetchPostsByCategory('trending-now', 5);
         setFeaturedNews(posts);
       } finally {
         setLoading(false);

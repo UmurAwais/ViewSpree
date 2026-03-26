@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import LazyImage from './LazyImage';
-import { fetchPosts } from '../lib/wordpress';
+import { fetchPostsByCategory } from '../lib/wordpress';
 import { ListSkeleton } from './Skeleton';
 
 const LatestNews = ({ onPostClick }) => {
@@ -12,7 +12,7 @@ const LatestNews = ({ onPostClick }) => {
 
   useEffect(() => {
     async function loadData() {
-      const posts = await fetchPosts({ per_page: 6 });
+      const posts = await fetchPostsByCategory('viewspree-exclusive', 6);
       setNews(posts);
       setLoading(false);
     }
