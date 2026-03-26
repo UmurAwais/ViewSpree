@@ -1,6 +1,7 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/favicon.webp", "dest": "/favicon.webp" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
