@@ -64,9 +64,9 @@
 }
 
 .blurry-header {
-  background-color: rgba(12, 12, 14, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background-color: rgba(12, 12, 14, 0.7) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
 }
 
 .blurry-dropdown {
