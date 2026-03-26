@@ -5,6 +5,7 @@ import path from "path"
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/', // This ensures that assets are always loaded from the absolute root
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
