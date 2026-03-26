@@ -160,7 +160,7 @@ const CategoryPage = () => {
       {/* Sub-Intelligence Nodes (The Subcategories) */}
       {subs.length > 0 && (
         <Categories 
-          title="Sub-Intelligence Nodes"
+          title="Go Specific"
           subtitle="Specialized Technical Niches"
           items={subs}
         />

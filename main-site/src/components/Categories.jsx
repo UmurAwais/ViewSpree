@@ -14,7 +14,7 @@ const CategoryCard = ({ category }) => {
       <LazyImage 
         src={category.image} 
         alt={category.name}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
       />
       
       {/* Cinematic Mask */}
@@ -38,7 +38,7 @@ const CategoryCard = ({ category }) => {
 };
 
 const Categories = ({ 
-  title = "Explore Intelligence", 
+  title = "Go Specific", 
   subtitle = "Navigate by Specialty", 
   items = categories 
 }) => {
