@@ -5,20 +5,22 @@ const NavDropdown = ({ subcategories }) => {
   if (!subcategories || subcategories.length === 0) return null;
 
   return (
-    <div className="absolute top-[70%] left-0 pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 translate-y-2 group-hover/nav:translate-y-0 z-50">
-      <div className="w-52 blurry-dropdown border border-white/10 rounded-2xl shadow-2xl shadow-black/50 overflow-hidden py-2 flex flex-col relative before:absolute before:inset-0 before:bg-linear-to-b before:from-white/5 before:to-transparent before:pointer-events-none">
+    <div className="absolute top-[80%] left-0 pt-3 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 translate-y-3 group-hover/nav:translate-y-0 z-50 pointer-events-none group-hover/nav:pointer-events-auto">
+      {/* Main Container matching the screenshot exactly */}
+      <div className="w-64 bg-[#1a1a1e] border border-white/5 rounded-[28px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] p-2 flex flex-col gap-1 backdrop-blur-3xl overflow-hidden">
+        
         {subcategories.map((sub, i) => (
           <Link 
             key={i} 
             to={`/category/${sub.toLowerCase().replace(/\s+/g, '-')}`}
-            className="px-5 py-2.5 text-[14px] text-white/70 hover:text-white hover:bg-white/5 transition-all w-full text-left font-display tracking-wide relative flex items-center group/btn"
+            className="px-5 py-3 text-[14px] font-medium text-white/90 hover:text-white hover:bg-[#2c2c31] rounded-xl transition-all duration-200 w-full text-left font-display tracking-tight"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent absolute left-2 opacity-0 scale-0 group-hover/btn:opacity-100 group-hover/btn:scale-100 transition-all duration-300 shadow-[0_0_10px_var(--color-accent)]" />
-            <span className="relative z-10 transition-transform duration-300 group-hover/btn:translate-x-1">
-              {sub}
-            </span>
+            {sub}
           </Link>
         ))}
+
+        {/* Subtle Bottom Accent Gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
       </div>
     </div>
   );
