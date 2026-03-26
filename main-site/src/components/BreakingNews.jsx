@@ -77,7 +77,7 @@ const BreakingNews = ({ onPostClick }) => {
                 {/* Overlaid Title & Metadata */}
                 <div className="absolute inset-0 p-4 md:p-8 flex flex-col justify-end">
                   <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                    <div className="bg-accent text-white px-2 md:px-3 py-1 md:py-1.5 rounded-sm text-[8px] md:text-[10px] font-black uppercase tracking-[2px] shadow-2xl flex items-center gap-2">
+                    <div className="bg-accent text-black px-2 md:px-3 py-1 md:py-1.5 rounded-sm text-[8px] md:text-[10px] font-black uppercase tracking-[2px] shadow-2xl flex items-center gap-2">
                        <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-white animate-pulse" />
                        {mainStory.category}
                     </div>

@@ -52,7 +52,7 @@ const About = () => {
           <div className="flex flex-col lg:flex-row gap-10 md:gap-16 lg:gap-24 items-center">
             <div className="flex-1 max-w-2xl text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-6 md:mb-8">
-                <span className="bg-accent text-white px-3 py-1 rounded-sm text-[9px] md:text-[10px] font-black uppercase tracking-[2px]">
+                <span className="bg-accent text-black px-3 py-1 rounded-sm text-[9px] md:text-[10px] font-black uppercase tracking-[2px]">
                     About ViewSpree
                 </span>
               </div>

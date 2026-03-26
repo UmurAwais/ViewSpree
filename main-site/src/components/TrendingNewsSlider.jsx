@@ -78,7 +78,7 @@ const TrendingNewsSlider = ({ onPostClick }) => {
                   <div className="flex-1 z-10 pl-3 md:pl-0 md:pr-6 flex flex-col justify-between min-w-0">
                     <div>
                       <div className="flex items-center gap-2 sm:gap-3 mb-1.5 md:mb-4">
-                         <div className="bg-accent text-white px-2 py-0.5 md:py-1 rounded text-[7px] md:text-[9px] font-black uppercase tracking-[1px] md:tracking-[1.5px] flex items-center gap-1 md:gap-1.5 whitespace-nowrap">
+                         <div className="bg-accent text-black px-2 py-0.5 md:py-1 rounded text-[7px] md:text-[9px] font-black uppercase tracking-[1px] md:tracking-[1.5px] flex items-center gap-1 md:gap-1.5 whitespace-nowrap">
                             <div className="w-1 h-1 rounded-full bg-white animate-pulse" />
                             {news.category}
                          </div>
@@ -97,7 +97,7 @@ const TrendingNewsSlider = ({ onPostClick }) => {
                     </div>
 
                     <div className="inline-flex mt-2 md:mt-6">
-                        <button className="flex items-center gap-2 px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-bold text-[9px] md:text-xs bg-accent text-white transition-all duration-300 hover:gap-4 shadow-lg active:scale-95">
+                        <button className="flex items-center gap-2 px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-bold text-[9px] md:text-xs bg-accent text-black transition-all duration-300 hover:gap-4 shadow-lg active:scale-95">
                           {news.cta}
                           <ArrowRight className="w-3 md:w-4 h-3 md:h-4" />
                         </button>

@@ -88,7 +88,7 @@ const SubscribeModal = ({ isOpen, onClose }) => {
             
             <button 
               type="submit"
-              className="group w-full bg-accent hover:bg-accent/80 text-white font-black uppercase tracking-[4px] text-[12px] py-4 rounded-xl transition-all duration-300 shadow-2xl shadow-accent/20 cursor-pointer active:scale-[0.98] flex items-center justify-center gap-3"
+              className="group w-full bg-accent hover:bg-accent/80 text-black font-black uppercase tracking-[4px] text-[12px] py-4 rounded-xl transition-all duration-300 shadow-2xl shadow-accent/20 cursor-pointer active:scale-[0.98] flex items-center justify-center gap-3"
             >
               <span>Confirm Subscription</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

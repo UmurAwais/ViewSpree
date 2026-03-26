@@ -49,7 +49,7 @@ const SinglePost = () => {
   return (
     <div className="bg-brand-bg min-h-screen font-sans selection:bg-accent selection:text-white">
       {/* Article Hero */}
-      <div className="relative w-full h-[60vh] lg:h-[70vh] flex items-center overflow-hidden">
+      <div className="relative w-full h-[50vh] lg:h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <LazyImage 
             src={post?.image || "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&q=80&w=2000"} 
@@ -62,7 +62,7 @@ const SinglePost = () => {
         <div className="container-custom relative z-10">
           <div className="max-w-4xl">
             <div className="flex items-center gap-4 mb-8">
-              <span className="bg-accent text-white px-3 py-1 text-[10px] font-black uppercase tracking-[2px] rounded-sm">
+              <span className="bg-accent text-black px-3 py-1 text-[10px] font-black uppercase tracking-[2px] rounded-sm">
                 {post?.category || "Special Report"}
               </span>
               <span className="text-white/40 text-[10px] font-black uppercase tracking-[2px] flex items-center gap-2">
@@ -111,7 +111,7 @@ const SinglePost = () => {
                     className="w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <button className="cursor-pointer w-20 h-20 rounded-full bg-accent/20 border border-accent/40 backdrop-blur-md flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-accent transition-all duration-500">
+                    <button className="cursor-pointer w-20 h-20 rounded-full bg-accent/20 border border-accent/40 backdrop-blur-md flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-accent group-hover:text-black transition-all duration-500">
                       <Play className="w-8 h-8 fill-current ml-1" />
                     </button>
                   </div>

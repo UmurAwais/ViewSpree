@@ -127,7 +127,7 @@ const PostSidebar = () => {
             placeholder="EMAIL ADDRESS" 
             className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-[10px] font-black tracking-widest outline-none focus:border-accent font-sans transition-all text-white"
           />
-          <button className="cursor-pointer w-full bg-accent hover:bg-accent/90 text-white font-black py-4 rounded-xl text-[10px] tracking-[2px] uppercase transition-all shadow-lg shadow-accent/20 font-sans">
+          <button className="cursor-pointer w-full bg-accent hover:bg-accent/90 text-black font-black py-4 rounded-xl text-[10px] tracking-[2px] uppercase transition-all shadow-lg shadow-accent/20 font-sans">
             Subscribe
           </button>
         </div>

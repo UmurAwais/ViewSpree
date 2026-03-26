@@ -70,7 +70,7 @@ const Newsletter = () => {
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" />
                   </div>
                   
-                  <button className="cursor-pointer w-full bg-accent hover:bg-accent/90 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 transition-all">
+                  <button className="cursor-pointer w-full bg-accent hover:bg-accent/90 text-black font-bold py-4 rounded-2xl flex items-center justify-center gap-2 transition-all">
                     <span className="uppercase tracking-widest text-xs cursor-pointer">Subscribe Now</span>
                     <Send className="w-4 h-4 cursor-pointer" />
                   </button>

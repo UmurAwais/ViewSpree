@@ -15,7 +15,7 @@ const Layout = ({ onSubscribe }) => {
   return (
     <div className="min-h-screen bg-brand-bg font-sans">
       {/* Promotion Layer */}
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
 
       {/* Navigation Layer */}
       <Header onSubscribe={onSubscribe} />

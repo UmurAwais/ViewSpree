@@ -28,7 +28,7 @@ const Header = ({ onSubscribe }) => {
 
   return (
     <>
-      <header className="sticky top-0 left-0 right-0 h-16 md:h-20 blurry-header border-b border-white/5 z-100 flex items-center shadow-2xl">
+      <header className="sticky top-0 left-0 right-0 h-14 md:h-16 blurry-header border-b border-white/5 z-100 flex items-center shadow-2xl">
         <div className="container-custom flex items-center justify-between w-full">
           
           {/* Left Section: Logo & Nav */}

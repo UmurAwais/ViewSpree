@@ -250,7 +250,7 @@ const CategoryPage = () => {
             {/* Left Content */}
             <div className="flex-1 flex flex-col items-start gap-8">
               <div className="flex items-center gap-3">
-                <span className="bg-accent text-white px-3 py-1 rounded-sm text-[10px] font-black uppercase tracking-[2px]">
+                <span className="bg-accent text-black! px-3 py-1 rounded-sm text-[10px] font-black uppercase tracking-[2px]">
                   Explore
                 </span>
                 <div className="h-4 w-px bg-white/10" />
@@ -271,7 +271,7 @@ const CategoryPage = () => {
                 <Button 
                   variant="secondary" 
                   onClick={onSubscribe}
-                  className="px-10 py-4 rounded-xl text-sm font-black uppercase tracking-widest bg-accent! text-white hover:bg-accent/80! transition-all duration-300 flex items-center gap-2"
+                  className="px-10 py-4 rounded-xl text-sm font-black! uppercase tracking-widest bg-accent! text-black! hover:bg-accent/80! transition-all duration-300 flex items-center gap-2"
                 >
                   Join The Space
                 </Button>
@@ -352,7 +352,7 @@ const CategoryPage = () => {
           <div className="flex justify-center">
             <Button 
               variant="secondary"
-              className="group relative px-8 py-5 font-black uppercase tracking-[4px] text-[12px] rounded-2xl! bg-accent! hover:bg-accent/80! text-white transition-all duration-500 shadow-2xl overflow-hidden shadow-white/10"
+              className="group relative px-8 py-5 font-black uppercase tracking-[4px] text-[12px] rounded-2xl! bg-accent! hover:bg-accent/80! text-black! transition-all duration-500 shadow-2xl overflow-hidden shadow-white/10"
             >
               <span className="relative z-10">Load More Articles</span>
             </Button>

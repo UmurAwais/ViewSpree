@@ -1,33 +1,57 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "https://api.fontshare.com/v2/css?f[]=satoshi@1,2,300,400,500,700,900,901&display=swap";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --font-sans: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Satoshi', sans-serif;
-  
+
   --color-brand-bg: #121212;
   --color-header-bg: #121212;
-  --color-accent: #007000;
+  --color-accent: #ffffff;
+  --color-accent-soft: rgba(255, 255, 255, 0.6);
   --max-width-site: 1400px;
+}
+
+@layer utilities {
+  .silver-gradient {
+    background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 100%);
+  }
+  .silver-text-gradient {
+    background: linear-gradient(135deg, #c0c0c0 0%, #ffffff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 @layer base {
   * {
     font-family: inherit;
   }
-  
+
   html {
     font-family: 'Satoshi', sans-serif;
+    @apply font-sans;
   }
-  
+
   body {
-    @apply bg-brand-bg text-white font-sans antialiased selection:bg-accent selection:text-white;
+    @apply font-sans antialiased text-white;
+    background-color: var(--color-brand-bg);
     font-family: 'Satoshi', sans-serif;
   }
   
+  ::selection {
+    background-color: var(--color-accent);
+    color: #000000;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight font-bold;
   }
-  
+
   button, input, select, textarea {
     font-family: inherit;
   }
@@ -50,3 +74,4 @@
   backdrop-filter: blur(30px) !important;
   -webkit-backdrop-filter: blur(30px) !important;
 }
+
