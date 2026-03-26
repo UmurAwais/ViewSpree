@@ -55,7 +55,7 @@ export async function fetchPostsByCategory(slug, count = 8) {
 
 export async function fetchSubcategories(parentId) {
   try {
-    const response = await fetch(`${WP_API_URL}/categories?parent=${parentId}&per_page=100`);
+    const response = await fetch(`${WP_API_URL}/categories?parent=${parentId}&per_page=100&hide_empty=0`);
     if (!response.ok) return [];
     const subcats = await response.json();
     return subcats.map(cat => ({

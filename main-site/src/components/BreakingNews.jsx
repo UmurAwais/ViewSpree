@@ -10,7 +10,6 @@ const BreakingNews = ({ onPostClick }) => {
 
   useEffect(() => {
     async function loadData() {
-      // Fetching specifically from the 'breaking-news' WordPress category
       const fetched = await fetchPostsByCategory('breaking-news', 7);
       setPosts(fetched);
       setLoading(false);
@@ -20,11 +19,11 @@ const BreakingNews = ({ onPostClick }) => {
 
   if (loading) {
     return (
-       <section className="py-20 bg-brand-bg md:border-b md:border-white/5 relative overflow-hidden">
+       <section className="py-12 md:py-20 bg-brand-bg md:border-b md:border-white/5 relative overflow-hidden">
           <div className="container-custom">
-            <div className="flex items-center gap-4 mb-12">
-              <div className="w-2 h-8 bg-white/5 rounded-full" />
-              <div className="w-48 h-8 bg-white/5 rounded-md animate-pulse" />
+            <div className="flex items-center gap-4 mb-10 md:mb-12 px-1 md:px-0">
+              <div className="w-1.5 h-6 md:w-2 md:h-8 bg-white/5 rounded-full" />
+              <div className="w-40 md:w-48 h-8 md:h-10 bg-white/5 rounded-md animate-pulse" />
             </div>
             <GridSkeleton count={4} />
           </div>
@@ -38,9 +37,19 @@ const BreakingNews = ({ onPostClick }) => {
   if (!mainStory) return null;
 
   return (
-    <section className="pb-10 md:pb-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
+    <section className="py-12 md:py-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
       <div className="container-custom">
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex items-center justify-between mb-10 md:mb-12 px-1 md:px-0">
+          <div className="flex items-center gap-3 md:gap-4">
+            <div className="w-1.5 h-6 md:w-2 md:h-8 bg-accent rounded-full shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
+            <h2 className="text-white text-xl md:text-3xl font-black uppercase tracking-tighter">Breaking Intelligence</h2>
+          </div>
+          <button className="hidden md:flex py-2 px-8 border border-white/10 rounded-lg text-white/40 text-[10px] font-black uppercase tracking-[3px] hover:bg-white/5 hover:text-white transition-all cursor-pointer items-center gap-2 group">
+             Full Feed
+             <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 group-hover:bg-white/5 transition-all">
+                <ArrowUpRight className="w-3 h-3" />
+             </div>
+          </button>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
@@ -70,7 +79,7 @@ const BreakingNews = ({ onPostClick }) => {
                        {mainStory.date}
                     </div>
                   </div>
-                  <h3 className="text-white font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-[1.1] tracking-tighter group-hover:underline decoration-accent decoration-[3px] underline-offset-4 transition-all w-full md:w-11/12 xl:w-4/5">
+                  <h3 className="text-white font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-[1.1] tracking-tighter group-hover:underline decoration-accent decoration-[3px] underline-offset-4 transition-all w-full md:w-11/12 xl:w-4/5 line-clamp-3 md:line-clamp-none">
                     {mainStory.title}
                   </h3>
                 </div>
@@ -78,7 +87,7 @@ const BreakingNews = ({ onPostClick }) => {
 
               {/* Excerpt Container */}
               <div className="flex flex-col gap-2 md:gap-3 px-1 md:px-2 pb-2">
-                <p className="text-white/60 text-base md:text-lg leading-relaxed font-normal line-clamp-2 sm:line-clamp-none">
+                <p className="text-white/60 text-base md:text-lg leading-relaxed font-normal line-clamp-2 md:line-clamp-none">
                   {mainStory.excerpt}
                 </p>
                 <div className="mt-2 md:mt-3 flex items-center gap-3 text-white/40 text-[10px] md:text-[12px] font-bold uppercase tracking-wider">
@@ -100,9 +109,6 @@ const BreakingNews = ({ onPostClick }) => {
                   </div>
                   Live Feed
                 </h3>
-                <button className="text-white/40 hover:text-white transition-colors">
-                  <ArrowUpRight className="w-5 h-5" />
-                </button>
               </div>
 
               <div className="flex flex-col gap-7 flex-1">
