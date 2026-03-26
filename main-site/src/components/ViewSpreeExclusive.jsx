@@ -54,14 +54,14 @@ const LatestNews = ({ onPostClick }) => {
             <div 
               key={item.id} 
               onClick={() => navigate(`/post/${item.id}`, { state: { post: item } })}
-              className="group cursor-pointer bg-[#121212] hover:bg-[#181818] transition-all duration-300 rounded-[24px] p-4 border border-white/5 flex flex-col sm:flex-row gap-6 items-center"
+              className="group cursor-pointer bg-[#121212] hover:bg-[#181818] transition-all duration-300 rounded-3xl p-2 border border-white/5 flex flex-col sm:flex-row gap-6 items-center"
             >
               {/* Left: Image */}
               <div className="w-full sm:w-[45%] aspect-16/10 rounded-2xl overflow-hidden shrink-0 border border-white/5">
                 <LazyImage 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                  className="w-full h-full object-cover transition-all duration-700" 
                 />
               </div>
 
@@ -80,7 +80,7 @@ const LatestNews = ({ onPostClick }) => {
                 </p>
 
                 <div className="mt-3">
-                  <span className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/80 uppercase tracking-widest group-hover:border-accent transition-colors">
+                  <span className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/80 uppercase tracking-widest  transition-colors">
                     {item.category}
                   </span>
                 </div>
