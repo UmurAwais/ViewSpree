@@ -5,6 +5,7 @@ import logo from '../assets/logo.png';
 import Button from './Button';
 import Search from './Search';
 import Navigation from './Navigation';
+import { categories } from '../data/categories';
 
 const Header = ({ onSubscribe }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -144,13 +145,13 @@ const Header = ({ onSubscribe }) => {
 
              {/* Nav Links */}
              <div className="flex flex-col gap-1 overflow-y-auto grow pb-10">
-                {['Gaming', 'Tech', 'AI', 'Reviews', 'Gadgets'].map((link) => (
+                {categories.map((cat) => (
                   <Link
-                    key={link}
-                    to={`/category/${link.toLowerCase()}`}
+                    key={cat.slug}
+                    to={`/category/${cat.slug}`}
                     className="flex items-center justify-between py-4 border-b border-white/5 text-lg font-bold text-white group"
                   >
-                    {link}
+                    {cat.name}
                     <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-accent transition-colors" />
                   </Link>
                 ))}
@@ -169,4 +170,3 @@ const Header = ({ onSubscribe }) => {
 };
 
 export default Header;
-

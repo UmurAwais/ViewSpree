@@ -1,62 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Flame, Clock, ArrowUpRight } from 'lucide-react';
 import LazyImage from './LazyImage';
-
-const mainStory = {
-  title: "Sony Officially Announces PlayStation 6 Architecture: Built for 8K from the Ground Up",
-  description: "In a surprise technical briefing, Mark Cerny reveals the foundational architecture of the next console generation, emphasizing hardware-accelerated ray tracing and custom AI scaling.",
-  category: "Breaking: Hardware",
-  author: "Sarah Harding",
-  time: "2 HOURS AGO",
-  image: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&q=80&w=1200"
-};
-
-const sidebarStories = [
-  {
-    time: "15 MINS AGO",
-    title: "OpenAI board in emergency talks over CEO restructuring",
-    category: "AI"
-  },
-  {
-    time: "42 MINS AGO",
-    title: "NVIDIA shares surge another 12% following H200 announcement",
-    category: "Market"
-  },
-  {
-    time: "2 HOURS AGO",
-    title: "Nintendo Switch 2 specs leaked by component manufacturer",
-    category: "Gaming"
-  },
-  {
-    time: "4 HOURS AGO",
-    title: "Epic Games wins major antitrust concession from Apple",
-    category: "Legal"
-  },
-  {
-    time: "5 HOURS AGO",
-    title: "Tesla Cybercab launch delayed to 2027 amid regulatory hurdles",
-    category: "Mobility"
-  },
-  {
-    time: "5 HOURS AGO",
-    title: "Tesla Cybercab launch delayed to 2027 amid regulatory hurdles",
-    category: "Mobility"
-  }
-];
+import Loader from './Loader';
+import { fetchPosts } from '../lib/wordpress';
 
 const BreakingNews = ({ onPostClick }) => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadData() {
+      const fetched = await fetchPosts({ per_page: 7 });
+      setPosts(fetched);
+      setLoading(false);
+    }
+    loadData();
+  }, []);
+
+  if (loading) {
+    return (
+       <div className="py-20 flex justify-center items-center bg-brand-bg">
+          <Loader />
+       </div>
+    );
+  }
+
+  const mainStory = posts[0] || null;
+  const sidebarStories = posts.slice(1);
+
+  if (!mainStory) return null;
+
   return (
     <section className="pb-10 md:pb-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
       <div className="container-custom">
-        {/* Unified Header */}
         <div className="flex items-center justify-between mb-12">
-          {/* <div className="flex items-center gap-4">
-            <div className="w-2 h-8 bg-accent rounded-full animate-pulse shadow-[0_0_15px_var(--color-accent)]" />
-            <h2 className="text-white text-3xl font-black uppercase tracking-tighter flex items-center gap-3">
-              Breaking News
-              <Flame className="w-6 h-6 text-accent" />
-            </h2>
-          </div> */}
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
@@ -83,7 +60,7 @@ const BreakingNews = ({ onPostClick }) => {
                     </div>
                     <div className="flex items-center gap-2 text-white/90 text-[9px] md:text-[11px] font-black uppercase tracking-widest bg-black/40 backdrop-blur-sm px-2 md:px-3 py-1 md:py-1.5 rounded-sm">
                        <Clock className="w-3 md:w-3.5 h-3 md:h-3.5" />
-                       {mainStory.time}
+                       {mainStory.date}
                     </div>
                   </div>
                   <h3 className="text-white font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-[1.1] tracking-tighter group-hover:underline decoration-accent decoration-[3px] underline-offset-4 transition-all w-full md:w-11/12 xl:w-4/5">
@@ -95,10 +72,10 @@ const BreakingNews = ({ onPostClick }) => {
               {/* Excerpt Container */}
               <div className="flex flex-col gap-2 md:gap-3 px-1 md:px-2 pb-2">
                 <p className="text-white/60 text-base md:text-lg leading-relaxed font-normal line-clamp-2 sm:line-clamp-none">
-                  {mainStory.description}
+                  {mainStory.excerpt}
                 </p>
                 <div className="mt-2 md:mt-3 flex items-center gap-3 text-white/40 text-[10px] md:text-[12px] font-bold uppercase tracking-wider">
-                  <span>By {mainStory.author}</span>
+                  <span>By Technical Desk</span>
                   <div className="w-1 h-1 rounded-full bg-white/20" />
                   <span className="group-hover:text-white transition-colors flex items-center gap-1">Read Full Story <ArrowUpRight className="w-3 md:w-3.5 h-3 md:h-3.5" /></span>
                 </div>
@@ -134,11 +111,11 @@ const BreakingNews = ({ onPostClick }) => {
                     <div className="absolute left-0 top-1.5 w-2 h-2 rounded-full border-2 border-[#1a1a1e] bg-white/30 group-hover:bg-accent group-hover:shadow-[0_0_10px_var(--color-accent)] transition-all z-10" />
                     
                     <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-wider font-display">
-                      <span className="text-accent">{story.time}</span>
+                      <span className="text-accent">{story.date}</span>
                       <span className="w-1 h-1 rounded-full bg-white/10" />
                       <span className="text-white/40 group-hover:text-white/70 transition-colors">{story.category}</span>
                     </div>
-                    <h4 className="text-white/90 text-[15px] font-bold leading-snug group-hover:underline decoration-accent decoration-[3px] underline-offset-2 transition-all">
+                    <h4 className="text-white/90 text-[15px] font-bold leading-snug group-hover:underline decoration-accent decoration-[3px] underline-offset-2 transition-all line-clamp-2">
                       {story.title}
                     </h4>
                   </div>

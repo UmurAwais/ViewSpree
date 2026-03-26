@@ -7,7 +7,7 @@ const CategoryCard = ({ category }) => {
   const navigate = useNavigate();
   return (
     <div 
-      onClick={() => navigate(`/category/${category.name.toLowerCase()}`)}
+      onClick={() => navigate(`/category/${category.slug}`)}
       className="group relative rounded-2xl overflow-hidden aspect-16/10 cursor-pointer bg-[#121212] border border-white/5 transition-all duration-500 hover:ring-1 hover:ring-white/20"
     >
       {/* Background Image */}

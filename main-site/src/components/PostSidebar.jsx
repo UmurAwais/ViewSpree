@@ -1,8 +1,9 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Clock, TrendingUp } from 'lucide-react';
 import Search from './Search';
 import { categories } from '../data/categories';
+import { fetchPosts } from '../lib/wordpress';
 
 // Real Subcategory Data mapping from the site's architecture
 const subcategoryData = {
@@ -16,6 +17,17 @@ const subcategoryData = {
 const PostSidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [trendingPosts, setTrendingPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadTrending() {
+      const posts = await fetchPosts({ per_page: 3 });
+      setTrendingPosts(posts);
+      setLoading(false);
+    }
+    loadTrending();
+  }, []);
 
   // Discovery Pool: Actual Site Categories & Subcategories
   const discoveryPool = useMemo(() => {
@@ -38,30 +50,6 @@ const PostSidebar = () => {
       .slice(0, 10); // Show 10 random real nodes
   }, [location.pathname]); // Refresh on navigation
 
-  const trendingPosts = [
-    {
-      id: 't1',
-      title: "The Architecture of Tomorrow: 2nm Silicon Breakthroughs",
-      category: "Semiconductors",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=400",
-      time: "5 Min Read"
-    },
-    {
-      id: 't2',
-      title: "Neural Radiance Fields: The Future of Real-time Rendering",
-      category: "Graphics Tech",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=400",
-      time: "8 Min Read"
-    },
-    {
-      id: 't3',
-      title: "GTA VI Physics: Next-Gen Procedural Animation",
-      category: "Gaming",
-      image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400",
-      time: "12 Min Read"
-    }
-  ];
-
   return (
     <aside className="sticky top-28 space-y-16 h-fit w-full">
       {/* Search Module - Unique to Sidebar */}
@@ -82,33 +70,52 @@ const PostSidebar = () => {
           <h2 className="text-white text-xl font-black font-display uppercase tracking-widest">Trending</h2>
         </div>
         <div className="space-y-4">
-          {trendingPosts.map((p) => (
-            <div 
-              key={p.id} 
-              className="bg-[#121212] hover:bg-[#181818] transition-colors duration-300 rounded-[20px] p-2.5 flex items-center gap-4 cursor-pointer group border border-white/5"
-              onClick={() => navigate('/post/1', { state: { post: p } })}
-            >
-              <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-[#0a0a0c]">
-                <img 
-                  src={p.image} 
-                  alt="" 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" 
-                />
-              </div>
-              <div className="flex flex-col flex-1 min-w-0 pr-2">
-                <span className="text-accent text-[8px] font-black uppercase tracking-[2px] mb-1 font-display">
-                  {p.category}
-                </span>
-                <h5 className="text-[13px] font-bold text-white leading-[1.3] mb-2 group-hover:text-accent transition-all font-display line-clamp-2">
-                  {p.title}
-                </h5>
-                <div className="flex items-center gap-2 text-[9px] text-white/30 font-black uppercase tracking-widest font-sans">
-                   <Clock size={10} className="opacity-50" />
-                   <span>{p.time}</span>
+          {loading ? (
+             <div className="space-y-4">
+                <div className="flex gap-4 items-center">
+                   <div className="w-20 h-20 rounded-xl bg-white/5 animate-pulse shrink-0" />
+                   <div className="flex-1 space-y-2">
+                      <div className="h-4 w-full bg-white/5 animate-pulse rounded" />
+                      <div className="h-4 w-3/4 bg-white/5 animate-pulse rounded" />
+                   </div>
+                </div>
+                <div className="flex gap-4 items-center opacity-60">
+                   <div className="w-20 h-20 rounded-xl bg-white/5 animate-pulse shrink-0" />
+                   <div className="flex-1 space-y-2">
+                      <div className="h-4 w-full bg-white/5 animate-pulse rounded" />
+                      <div className="h-4 w-3/4 bg-white/5 animate-pulse rounded" />
+                   </div>
+                </div>
+             </div>
+          ) : (
+            trendingPosts.map((p) => (
+              <div 
+                key={p.id} 
+                className="bg-[#121212] hover:bg-[#181818] transition-colors duration-300 rounded-[20px] p-2.5 flex items-center gap-4 cursor-pointer group border border-white/5"
+                onClick={() => navigate(`/post/${p.id}`, { state: { post: p } })}
+              >
+                <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-[#0a0a0c]">
+                  <img 
+                    src={p.image} 
+                    alt="" 
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" 
+                  />
+                </div>
+                <div className="flex flex-col flex-1 min-w-0 pr-2">
+                  <span className="text-accent text-[8px] font-black uppercase tracking-[2px] mb-1 font-display">
+                    {p.category}
+                  </span>
+                  <h5 className="text-[13px] font-bold text-white leading-[1.3] mb-2 group-hover:text-accent transition-all font-display line-clamp-2">
+                    {p.title}
+                  </h5>
+                  <div className="flex items-center gap-2 text-[9px] text-white/30 font-black uppercase tracking-widest font-sans">
+                     <Clock size={10} className="opacity-50" />
+                     <span>{p.date} • {p.readTime}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
 
