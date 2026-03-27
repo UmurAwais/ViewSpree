@@ -6,6 +6,7 @@ import LazyImage from '../components/LazyImage';
 import Button from '../components/Button';
 import CategoryFilters from '../components/CategoryFilters';
 import Categories from '../components/Categories';
+import SEO from '../components/SEO';
 import { categories as staticCategories } from '../data/categories';
 import { fetchPostsByCategory, getCategoryIdBySlug, fetchSubcategories } from '../lib/wordpress';
 import { GridSkeleton } from '../components/Skeleton';
@@ -45,18 +46,16 @@ const CategoryPage = () => {
   useEffect(() => {
     async function loadData() {
       setLoading(true);
-      // Fetch Posts
       const fetchedPosts = await fetchPostsByCategory(slug, 20);
       setPosts(fetchedPosts);
       
-      // Fetch Subcategories
       const parentId = await getCategoryIdBySlug(slug);
       if (parentId) {
         const subCats = await fetchSubcategories(parentId);
         setSubs(subCats.map(sc => ({
           name: sc.name,
           slug: sc.slug,
-          image: `https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800` // Better technical placeholder
+          image: `https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800`
         })));
       } else {
         setSubs([]);
@@ -75,7 +74,10 @@ const CategoryPage = () => {
     }
   };
   
-  const info = baseCategoryDataMap[slug] || { title: `${slug.toUpperCase()} Intelligence`, description: `Curated data from the ${slug} sector.` };
+  const info = baseCategoryDataMap[slug] || { 
+    title: `${slug.charAt(0).toUpperCase() + slug.slice(1)} Intelligence`, 
+    description: `Real-time data and technical feeds from the ${slug} sector.` 
+  };
   const categoryMeta = staticCategories.find(c => c.slug === slug) || staticCategories[0];
   const heroImage = categoryMeta.image;
 
@@ -96,8 +98,14 @@ const CategoryPage = () => {
 
   return (
     <div className="bg-brand-bg min-h-screen text-white overflow-x-hidden">
+      <SEO 
+        title={info.title}
+        description={info.description}
+        keywords={`${slug}, ${info.title}, Technical analysis of ${slug}, engineering insights, technical sector updates`}
+      />
+
       {/* Category Hero */}
-      <section className="relative w-full pt-12 pb-8 md:pt-16 md:pb-16 lg:pt-16 lg:pb-24 border-b border-white/5">
+      <section className="relative w-full pt-12 pb-8 md:pt-16 md:pb-16 lg:pt-16 lg:pb-16 border-b border-white/5">
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
             
@@ -157,7 +165,7 @@ const CategoryPage = () => {
         </div>
       </section>
 
-      {/* Sub-Intelligence Nodes (The Subcategories) */}
+      {/* Sub-Intelligence Nodes */}
       {subs.length > 0 && (
         <Categories 
           title="Go Specific"

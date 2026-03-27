@@ -5,6 +5,7 @@ import LazyImage from './LazyImage';
 import Newsletter from './Newsletter';
 import PostSidebar from './PostSidebar';
 import XIcon from './XIcon';
+import SEO from './SEO';
 import { fetchPostById } from '../lib/wordpress';
 import Skeleton from './Skeleton';
 
@@ -78,12 +79,19 @@ const SinglePost = () => {
 
   return (
     <div className="bg-brand-bg min-h-screen font-sans selection:bg-accent selection:text-black">
+      <SEO 
+        title={post?.title}
+        description={post?.excerpt || "Deep technical analysis and intelligence report from the ViewSpree desk."}
+        image={post?.image}
+        keywords={`${post?.category}, technical report, ${post?.title}, tech intelligence, ViewSpree`}
+      />
+
       {/* Article Hero */}
       <div className="relative w-full h-[50vh] lg:h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <LazyImage 
             src={post?.image || "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&q=80&w=2000"} 
-            alt="Hero Backdrop" 
+            alt={post?.title || "Hero Backdrop"} 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-linear-to-t from-brand-bg via-brand-bg/60 to-transparent" />
