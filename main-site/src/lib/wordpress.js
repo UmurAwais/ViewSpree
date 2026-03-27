@@ -82,7 +82,7 @@ function transformPost(wpPost) {
     excerpt: decodeHTMLEntities(wpPost.excerpt.rendered.replace(/<[^>]*>?/gm, '').trim()), // Stripping HTML tags
     image: featuredImage,
     category: category.toUpperCase(),
-    date: formatWPDate(wpPost.date),
+    date: formatWPDate(wpPost.date_gmt || wpPost.date),
     readTime: "5 Min Read", // Dummy value
     link: wpPost.link
   };
@@ -96,16 +96,28 @@ function decodeHTMLEntities(text) {
 }
 
 function formatWPDate(dateString) {
-  const date = new Date(dateString);
+  // We use the GMT date from WordPress and compare it to the current UTC time for precision
+  const postDate = new Date(dateString + 'Z'); // Appending Z to force UTC interpretation
   const now = new Date();
-  const diff = now.getTime() - date.getTime();
+  
+  const diff = now.getTime() - postDate.getTime();
   const minutes = Math.floor(diff / 60000);
   const hours = Math.floor(minutes / 60);
 
+  // If the post is older than 24 hours, show the actual calendar date
   if (hours >= 24) {
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    return postDate.toLocaleDateString('en-US', { 
+      month: 'short', 
+      day: 'numeric', 
+      year: 'numeric' 
+    }).toUpperCase();
   }
-  if (hours > 0) return `${hours} HOURS AGO`;
-  if (minutes > 0) return `${minutes} MINS AGO`;
+  
+  // If the calculation results in a negative number (timezone sync issue), default to "JUST NOW"
+  if (minutes < 1) return "JUST NOW";
+  
+  if (hours > 0) return `${hours} ${hours === 1 ? 'HOUR' : 'HOURS'} AGO`;
+  if (minutes > 0) return `${minutes} ${minutes === 1 ? 'MIN' : 'MINS'} AGO`;
+  
   return "JUST NOW";
 }
