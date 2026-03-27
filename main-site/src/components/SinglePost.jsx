@@ -108,7 +108,7 @@ const SinglePost = () => {
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-[45px] lg:text-[60px] font-bold text-white max-w-4xl leading-[1.1] tracking-tight mb-8 font-display">
+            <h1 className="text-3xl md:text-[35px] lg:text-[55px] font-bold text-white max-w-4xl leading-[1.1] tracking-tight mb-8 font-display">
               {post?.title || "Loading..."}
             </h1>
 
@@ -126,7 +126,7 @@ const SinglePost = () => {
       </div>
 
       {/* Main Layout Grid */}
-      <div className="container-custom py-20 lg:py-24">
+      <div className="container-custom py-16 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           
           {/* Main Article Content */}
