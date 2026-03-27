@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import SinglePost from './components/SinglePost'
 import Category from './pages/Category'
 import About from './pages/About'
+import Contact from './pages/Contact'
 import SearchPage from './pages/Search'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
       },
       {
         path: "search",

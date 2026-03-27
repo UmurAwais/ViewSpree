@@ -19,7 +19,7 @@ const Footer = () => {
       { name: 'Tutorials', path: '#' }
     ],
     Support: [
-      { name: 'Contact', path: '#' },
+      { name: 'Contact', path: '/contact' },
       { name: 'Community', path: '#' },
       { name: 'Status', path: '#' },
       { name: 'FAQ', path: '#' }
