@@ -67,7 +67,7 @@ const PrivacyPolicy = () => {
         >
           <div className="flex items-center gap-3 mb-6">
             <span className="w-2 h-8 bg-accent rounded-full" />
-            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter font-display">Privacy Sovereignty</h1>
+            <h1 className="text-2xl md:text-4xl font-black uppercase tracking-tighter font-display">Privacy Sovereignty</h1>
           </div>
           <p className="text-lg md:text-xl text-white/40 font-medium leading-relaxed max-w-2xl">
             Our commitment to digital integrity means your data is protected with the same rigor we apply to our technical engineering analysis.

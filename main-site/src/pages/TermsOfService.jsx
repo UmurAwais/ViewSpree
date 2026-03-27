@@ -67,7 +67,7 @@ const TermsOfService = () => {
         >
           <div className="flex items-center gap-3 mb-6">
             <span className="w-2 h-8 bg-accent rounded-full" />
-            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter font-display">Service Protocol</h1>
+            <h1 className="text-2xl md:text-4xl font-black uppercase tracking-tighter font-display">Service Protocol</h1>
           </div>
           <p className="text-lg md:text-xl text-white/40 font-medium leading-relaxed max-w-2xl">
             Established standards for interacting with the ViewSpree Intelligence Grid and our proprietary technical assets.
