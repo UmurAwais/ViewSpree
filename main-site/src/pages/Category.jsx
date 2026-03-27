@@ -4,7 +4,6 @@ import Newsletter from '../components/Newsletter';
 import PostCard from '../components/PostCard';
 import LazyImage from '../components/LazyImage';
 import Button from '../components/Button';
-import CategoryFilters from '../components/CategoryFilters';
 import Categories from '../components/Categories';
 import SEO from '../components/SEO';
 import { categories as staticCategories } from '../data/categories';
@@ -41,8 +40,6 @@ const CategoryPage = () => {
   const [posts, setPosts] = useState([]);
   const [subs, setSubs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [activeFilter, setActiveFilter] = useState('Latest');
-  const [activeTags, setActiveTags] = useState([]);
 
   useEffect(() => {
     async function loadData() {
@@ -70,36 +67,14 @@ const CategoryPage = () => {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  const scrollToContent = () => {
-    const element = document.getElementById('category-content');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-  
   const info = baseCategoryDataMap[slug] || { title: `${slug.toUpperCase()} Intelligence`, description: `Curated data from the ${slug} sector.` };
   
-  // Intelligence Hero Logic: Priority 1: Subcategory Image Mapping | Priority 2: Static Category Image
+  // Instance-Specific Hero Logic
   const localSlugImage = getSubcategoryImage(slug);
-  const isDefaultMapped = localSlugImage === "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"; // Our fallback
+  const isDefaultMapped = localSlugImage === "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"; 
   
   const staticCategoryMeta = staticCategories.find(c => c.slug === slug);
   const heroImage = (!isDefaultMapped) ? localSlugImage : (staticCategoryMeta?.image || staticCategories[0].image);
-
-  // Filter/Sort logic
-  let displayPosts = [...posts];
-
-  if (activeTags.length > 0) {
-    displayPosts = displayPosts.filter(post => 
-      activeTags.some(tag => post.category.toLowerCase() === tag.toLowerCase())
-    );
-  }
-
-  displayPosts.sort((a, b) => {
-    if (activeFilter === 'Trending') return b.id - a.id;
-    if (activeFilter === 'Most Read') return (parseInt(b.readTime) || 0) - (parseInt(a.readTime) || 0);
-    return 0; // Default (Latest)
-  });
 
   return (
     <div className="bg-brand-bg min-h-screen text-white overflow-x-hidden">
@@ -114,7 +89,7 @@ const CategoryPage = () => {
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
             
-            {/* Left Content */}
+            {/* Left Content Area */}
             <div className="flex-1 flex flex-col items-start gap-4 md:gap-8 text-left order-2 lg:order-1">
               <div className="flex items-center gap-3">
                 <span className="bg-accent text-black px-3 py-1 rounded-sm text-[10px] font-black uppercase tracking-[2px]">
@@ -179,41 +154,33 @@ const CategoryPage = () => {
         />
       )}
       
-      {/* Feed Control & Grid Section */}
-      <section id="category-content" className="pt-8 pb-20">
+      {/* Feed & Grid Section */}
+      <section id="category-content" className="pt-12 pb-20">
         <div className="container-custom">
-          {/* Componentized Filter Bar */}
-          <CategoryFilters 
-            activeFilter={activeFilter} 
-            onFilterChange={setActiveFilter}
-            activeTags={activeTags}
-            onTagsChange={setActiveTags}
-            availableTags={['Analysis', 'Spotlight', 'Hardware', 'Software', 'Future', 'Tech']}
-          />
-
-          {/* Loading Indicator */}
+          
+          {/* Loading State */}
           {loading ? (
              <div className="py-20">
                 <GridSkeleton count={8} />
              </div>
           ) : (
             <>
-              {/* Responsive Grid */}
+              {/* Responsive Grid Matrix */}
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 mb-20">
-                {displayPosts.map((post) => (
+                {posts.map((post) => (
                   <PostCard key={post.id} post={post} />
                 ))}
               </div>
 
-              {/* No Results Fallback */}
-              {displayPosts.length === 0 && (
+              {/* Empty Data Fallback */}
+              {posts.length === 0 && (
                 <div className="py-32 text-center border border-dashed border-white/5 rounded-3xl">
                   <p className="text-white/20 font-black uppercase tracking-[5px]">Transmission Interrupted: No Matching Data</p>
                 </div>
               )}
 
-              {/* Load More Action */}
-              {displayPosts.length > 0 && (
+              {/* Direct Load Action */}
+              {posts.length > 0 && (
                 <div className="flex justify-center">
                   <Button 
                     variant="primary"
