@@ -110,7 +110,7 @@ const Contact = () => {
             </div>
 
             {/* Availability Matrix */}
-            <div className="p-8 rounded-[32px] bg-linear-to-br from-white/[0.03] to-transparent border border-white/5 relative overflow-hidden group">
+            <div className="p-8 rounded-[28px] bg-linear-to-br from-white/[0.03] to-transparent border border-white/5 relative overflow-hidden group">
                <div className="absolute top-0 right-0 w-48 h-48 bg-white/[0.02] blur-3xl rounded-full group-hover:bg-white/[0.05] transition-all duration-700" />
                <h4 className="text-white font-black uppercase text-xs tracking-widest mb-3 font-display">Operational Windows</h4>
                <p className="text-white/30 text-sm leading-relaxed mb-8 font-medium">Our engineers and editors monitor the feed 24/7. Primary response windows: 09:00 - 18:00 UTC.</p>
@@ -123,7 +123,7 @@ const Contact = () => {
 
           {/* Form Content Area */}
           <div className="lg:col-span-7">
-            <div className="bg-[#121212] rounded-[48px] p-8 md:p-14 border border-white/5 shadow-3xl relative overflow-hidden">
+            <div className="bg-[#121212] rounded-[28px] p-8 md:p-14 border border-white/5 shadow-3xl relative overflow-hidden">
               
               {isSubmitted ? (
                 <div className="py-24 flex flex-col items-center justify-center text-center space-y-8 animate-in fade-in zoom-in duration-700">
