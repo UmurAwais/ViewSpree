@@ -69,7 +69,7 @@ const CategoryPage = () => {
 
   const info = baseCategoryDataMap[slug] || { title: `${slug.toUpperCase()} Intelligence`, description: `Curated data from the ${slug} sector.` };
   
-  // Instance-Specific Hero Logic
+  // Custom Instance Logic
   const localSlugImage = getSubcategoryImage(slug);
   const isDefaultMapped = localSlugImage === "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"; 
   
@@ -131,7 +131,7 @@ const CategoryPage = () => {
 
             {/* Right Image Container */}
             <div className="flex-1 w-full max-w-2xl order-1 lg:order-2">
-              <div className="relative aspect-video lg:aspect-16/9 rounded-2xl md:rounded-3xl overflow-hidden border border-white/5 group shadow-2xl">
+              <div className="relative aspect-video lg:aspect-video rounded-2xl md:rounded-3xl overflow-hidden border border-white/5 group shadow-2xl">
                 <LazyImage 
                   src={heroImage} 
                   alt={info.title}
@@ -147,39 +147,41 @@ const CategoryPage = () => {
 
       {/* Sub-Intelligence Nodes */}
       {subs.length > 0 && (
-        <Categories 
-          title="Go Specific"
-          subtitle="Specialized Technical Niches"
-          items={subs}
-        />
+        <div className="border-b border-white/5">
+          <Categories 
+            title="Go Specific"
+            subtitle="Specialized Technical Niches"
+            items={subs}
+          />
+        </div>
       )}
       
-      {/* Feed & Grid Section */}
+      {/* Dynamic Data Feed Sections */}
       <section id="category-content" className="pt-12 pb-20">
         <div className="container-custom">
           
-          {/* Loading State */}
+          {/* Transition Loader */}
           {loading ? (
              <div className="py-20">
                 <GridSkeleton count={8} />
              </div>
           ) : (
             <>
-              {/* Responsive Grid Matrix */}
+              {/* Hierarchical Grid matrix */}
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 mb-20">
                 {posts.map((post) => (
                   <PostCard key={post.id} post={post} />
                 ))}
               </div>
 
-              {/* Empty Data Fallback */}
+              {/* No Matrix Node Fallback */}
               {posts.length === 0 && (
                 <div className="py-32 text-center border border-dashed border-white/5 rounded-3xl">
                   <p className="text-white/20 font-black uppercase tracking-[5px]">Transmission Interrupted: No Matching Data</p>
                 </div>
               )}
 
-              {/* Direct Load Action */}
+              {/* Next Node Fetch Action */}
               {posts.length > 0 && (
                 <div className="flex justify-center">
                   <Button 
