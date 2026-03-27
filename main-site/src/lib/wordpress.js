@@ -44,13 +44,13 @@ export async function getCategoryIdBySlug(slug) {
   }
 }
 
-export async function fetchPostsByCategory(slug, count = 8) {
+export async function fetchPostsByCategory(slug, count = 12, page = 1) {
   const categoryId = await getCategoryIdBySlug(slug);
   if (!categoryId) {
     console.warn(`Category slug '${slug}' not found, fetching general posts.`);
-    return fetchPosts({ per_page: count });
+    return fetchPosts({ per_page: count, page: page });
   }
-  return fetchPosts({ categories: categoryId, per_page: count });
+  return fetchPosts({ categories: categoryId, per_page: count, page: page });
 }
 
 export async function fetchSubcategories(parentId) {

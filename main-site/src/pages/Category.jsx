@@ -40,13 +40,20 @@ const CategoryPage = () => {
   const [posts, setPosts] = useState([]);
   const [subs, setSubs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const perPage = 12;
 
   useEffect(() => {
-    async function loadData() {
+    async function loadInitialData() {
       setLoading(true);
-      // Fetch Posts
-      const fetchedPosts = await fetchPostsByCategory(slug, 20);
+      setPage(1);
+      
+      // Fetch Posts (Page 1)
+      const fetchedPosts = await fetchPostsByCategory(slug, perPage, 1);
       setPosts(fetchedPosts);
+      setHasMore(fetchedPosts.length === perPage);
       
       // Fetch Subcategories
       const parentId = await getCategoryIdBySlug(slug);
@@ -55,7 +62,7 @@ const CategoryPage = () => {
         setSubs(subCats.map(sc => ({
           name: sc.name,
           slug: sc.slug,
-          image: getSubcategoryImage(sc.slug) // Using the dynamic mapping
+          image: getSubcategoryImage(sc.slug)
         })));
       } else {
         setSubs([]);
@@ -63,13 +70,29 @@ const CategoryPage = () => {
       
       setLoading(false);
     }
-    loadData();
+    loadInitialData();
     window.scrollTo(0, 0);
   }, [slug]);
 
+  const loadMorePosts = async () => {
+    if (loadingMore || !hasMore) return;
+    
+    setLoadingMore(true);
+    const nextPage = page + 1;
+    const nextPosts = await fetchPostsByCategory(slug, perPage, nextPage);
+    
+    if (nextPosts.length > 0) {
+      setPosts(prev => [...prev, ...nextPosts]);
+      setPage(nextPage);
+      setHasMore(nextPosts.length === perPage);
+    } else {
+      setHasMore(false);
+    }
+    setLoadingMore(false);
+  };
+
   const info = baseCategoryDataMap[slug] || { title: `${slug.toUpperCase()} Intelligence`, description: `Curated data from the ${slug} sector.` };
   
-  // Custom Instance Logic
   const localSlugImage = getSubcategoryImage(slug);
   const isDefaultMapped = localSlugImage === "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"; 
   
@@ -160,17 +183,22 @@ const CategoryPage = () => {
       <section id="category-content" className="pt-12 pb-20">
         <div className="container-custom">
           
-          {/* Transition Loader */}
+          {/* Initial Loading State */}
           {loading ? (
              <div className="py-20">
-                <GridSkeleton count={8} />
+                <GridSkeleton count={12} />
              </div>
           ) : (
             <>
-              {/* Hierarchical Grid matrix */}
+              {/* Responsive Grid Matrix */}
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 mb-20">
                 {posts.map((post) => (
                   <PostCard key={post.id} post={post} />
+                ))}
+                
+                {/* Skeleton during load-more */}
+                {loadingMore && [...Array(4)].map((_, i) => (
+                   <div key={`skeleton-${i}`} className="animate-pulse bg-white/5 aspect-16/10 rounded-2xl" />
                 ))}
               </div>
 
@@ -181,14 +209,16 @@ const CategoryPage = () => {
                 </div>
               )}
 
-              {/* Next Node Fetch Action */}
-              {posts.length > 0 && (
+              {/* Load More Action */}
+              {hasMore && posts.length > 0 && (
                 <div className="flex justify-center">
                   <Button 
                     variant="primary"
-                    className="w-full sm:w-auto px-12 py-5"
+                    onClick={loadMorePosts}
+                    className={`w-full sm:w-auto px-12 py-5 ${loadingMore ? 'opacity-50 cursor-wait' : ''}`}
+                    disabled={loadingMore}
                   >
-                    Fetch More Intelligence
+                    {loadingMore ? 'Fetching Data...' : 'Load More'}
                   </Button>
                 </div>
               )}
