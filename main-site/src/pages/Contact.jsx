@@ -49,7 +49,7 @@ const Contact = () => {
   const fieldClass = "w-full bg-[#202024] border border-transparent hover:bg-[#2a2a2e] focus:bg-[#2a2a2e] focus:border-white/20 rounded-lg px-6 py-4 text-white focus:outline-none transition-all duration-200 placeholder:text-white/20 font-medium text-[13px]";
 
   return (
-    <div className="bg-brand-bg min-h-screen pt-24 pb-20 font-sans selection:bg-white selection:text-black">
+    <div className="bg-brand-bg min-h-screen pt-16 pb-16 font-sans selection:bg-white selection:text-black">
       <SEO 
         title="Contact Us"
         description="Connect with the ViewSpree technical desk. Send your inquiries, feedback, or press releases."
@@ -60,7 +60,7 @@ const Contact = () => {
         {/* Intelligence Header */}
         <div className="max-w-4xl mb-20">
           <span className="text-white/40 text-[10px] font-black uppercase tracking-[5px] mb-6 block font-display">
-            Communication Portal // Node 04
+            Communication Portal
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-[0.95] mb-8 font-display">
             Connect with <br /> <span className="text-white/20">The Intelligence Desk</span>
