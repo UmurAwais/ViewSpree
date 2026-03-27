@@ -111,8 +111,8 @@ const TermsOfService = () => {
             >
                 <h3 className="text-lg font-bold text-white mb-4">Compliance & Legal</h3>
                 <p className="text-white/40 mb-8 text-sm">For further technical clarification on our service protocols, contact our legal desk.</p>
-                <a href="mailto:legal@viewspree.com" className="inline-flex items-center gap-2 text-accent font-black uppercase tracking-widest text-[10px] hover:gap-4 transition-all">
-                    legal@viewspree.com <ChevronRight size={14} />
+                <a href="mailto:support@viewspree.com" className="inline-flex items-center gap-2 text-accent font-black uppercase tracking-widest text-[10px] hover:gap-4 transition-all">
+                    support@viewspree.com <ChevronRight size={14} />
                 </a>
             </motion.div>
           </div>
