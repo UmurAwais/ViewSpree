@@ -56,7 +56,7 @@ const PrivacyPolicy = () => {
   ];
 
   return (
-    <div className="bg-brand-bg min-h-screen text-white pb-24 font-sans selection:bg-accent selection:text-white pt-24 md:pt-16">
+    <div className="bg-brand-bg min-h-screen text-white pb-24 font-sans selection:bg-accent selection:text-black pt-24 md:pt-16">
       <div className="container-custom">
         {/* Header Section */}
         <motion.div 
