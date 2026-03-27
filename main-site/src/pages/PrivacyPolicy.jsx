@@ -67,7 +67,7 @@ const PrivacyPolicy = () => {
         >
           <div className="flex items-center gap-3 mb-6">
             <span className="w-2 h-8 bg-accent rounded-full" />
-            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter font-display italic">Privacy Sovereignty</h1>
+            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter font-display">Privacy Sovereignty</h1>
           </div>
           <p className="text-lg md:text-xl text-white/40 font-medium leading-relaxed max-w-2xl">
             Our commitment to digital integrity means your data is protected with the same rigor we apply to our technical engineering analysis.
@@ -111,8 +111,8 @@ const PrivacyPolicy = () => {
             >
                 <h3 className="text-lg font-bold text-white mb-4">Questions regarding our protocol?</h3>
                 <p className="text-white/40 mb-8 text-sm">Contact our data sovereignty desk for detailed technical inquiries.</p>
-                <a href="mailto:legal@viewspree.com" className="inline-flex items-center gap-2 text-accent font-black uppercase tracking-widest text-[10px] hover:gap-4 transition-all">
-                    legal@viewspree.com <ChevronRight size={14} />
+                <a href="mailto:support@viewspree.com" className="inline-flex items-center gap-2 text-accent font-black uppercase tracking-widest text-[10px] hover:gap-4 transition-all">
+                    support@viewspree.com <ChevronRight size={14} />
                 </a>
             </motion.div>
           </div>
