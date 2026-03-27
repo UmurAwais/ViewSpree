@@ -2,18 +2,20 @@
  * ViewSpree Subcategory Image Mapping
  * 
  * To replace images for your subcategories:
- * 1. Find the SLUG of your subcategory in WordPress (e.g., 'aaa-games').
+ * 1. Find the SLUG of your subcategory in WordPress (e.g., 'playstation').
  * 2. Add a new entry to the mapping below with the slug as the key.
- * 3. Use an Unsplash URL as the value, or a local import.
+ * 3. Use an absolute path if the image is in public/assets (e.g., '/assets/playstation.webp')
  */
 
 export const subcategoryImages = {
-  // Gaming Subcategories
-  "aaa-games": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&q=80&w=1200",
-  "indie-games": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200",
-  "esports": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200",
+  // Gaming Subcategories (Local Assets)
+  "ea-sports": "/assets/easports.webp",
+  "nintendo": "/assets/nintendo.webp",
+  "playstation": "/assets/playstation.webp",
+  "rockstar-games": "/assets/rockstart.webp", // Note: Using the provided rockstart.webp file
+  "xbox": "/assets/xbox.webp",
 
-  // AI Subcategories
+  // AI Subcategories (Unsplash Fallbacks)
   "machine-learning": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200",
   "generative-ai": "https://images.unsplash.com/photo-1635241161466-541f065683ba?auto=format&fit=crop&q=80&w=1200",
   "neural-networks": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1200",
