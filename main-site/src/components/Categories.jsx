@@ -43,7 +43,7 @@ const Categories = ({
   items = categories 
 }) => {
   return (
-    <section className="py-12 md:py-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
+    <section id="categories-section" className="py-12 md:py-20 bg-brand-bg relative overflow-hidden border-t border-white/5">
       <div className="container-custom">
         {/* Responsive Header */}
         <div className="flex items-center justify-between mb-10 md:mb-12 px-1 md:px-0">
