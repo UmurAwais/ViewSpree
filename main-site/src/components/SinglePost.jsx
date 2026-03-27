@@ -139,7 +139,7 @@ const SinglePost = () => {
               )}
 
               <div 
-                className="wp-content space-y-8 text-white/50 text-lg leading-relaxed mb-16 font-sans"
+                className="wp-content space-y-8 text-white/85 text-lg leading-relaxed mb-16 font-sans"
                 dangerouslySetInnerHTML={{ __html: post?.content || "" }}
               />
 
