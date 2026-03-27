@@ -91,7 +91,7 @@ const PrivacyPolicy = () => {
                 className="group border-l border-white/5 pl-8 md:pl-12 py-2"
               >
                 <div className="flex items-center gap-4 mb-6 text-accent">
-                   <div className="p-3 rounded-xl bg-accent/10 border border-accent/20 group-hover:bg-accent group-hover:text-white transition-all duration-500">
+                   <div className="p-3 rounded-xl bg-accent/10 border border-accent/20 group-hover:bg-accent group-hover:text-black transition-all duration-500">
                       {section.icon}
                    </div>
                    <h2 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white font-display">
