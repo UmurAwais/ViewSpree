@@ -8,6 +8,7 @@ import CategoryFilters from '../components/CategoryFilters';
 import Categories from '../components/Categories';
 import SEO from '../components/SEO';
 import { categories as staticCategories } from '../data/categories';
+import { getSubcategoryImage } from '../data/subcategory-images';
 import { fetchPostsByCategory, getCategoryIdBySlug, fetchSubcategories } from '../lib/wordpress';
 import { GridSkeleton } from '../components/Skeleton';
 
@@ -46,16 +47,18 @@ const CategoryPage = () => {
   useEffect(() => {
     async function loadData() {
       setLoading(true);
+      // Fetch Posts
       const fetchedPosts = await fetchPostsByCategory(slug, 20);
       setPosts(fetchedPosts);
       
+      // Fetch Subcategories
       const parentId = await getCategoryIdBySlug(slug);
       if (parentId) {
         const subCats = await fetchSubcategories(parentId);
         setSubs(subCats.map(sc => ({
           name: sc.name,
           slug: sc.slug,
-          image: `https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800`
+          image: getSubcategoryImage(sc.slug) // Using the dynamic mapping
         })));
       } else {
         setSubs([]);
@@ -74,10 +77,7 @@ const CategoryPage = () => {
     }
   };
   
-  const info = baseCategoryDataMap[slug] || { 
-    title: `${slug.charAt(0).toUpperCase() + slug.slice(1)} Intelligence`, 
-    description: `Real-time data and technical feeds from the ${slug} sector.` 
-  };
+  const info = baseCategoryDataMap[slug] || { title: `${slug.toUpperCase()} Intelligence`, description: `Curated data from the ${slug} sector.` };
   const categoryMeta = staticCategories.find(c => c.slug === slug) || staticCategories[0];
   const heroImage = categoryMeta.image;
 
