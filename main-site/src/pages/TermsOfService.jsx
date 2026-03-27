@@ -56,7 +56,7 @@ const TermsOfService = () => {
   ];
 
   return (
-    <div className="bg-brand-bg min-h-screen text-white pb-24 font-sans selection:bg-accent selection:text-black pt-24 md:pt-16">
+    <div className="bg-brand-bg min-h-screen text-white pb-16 font-sans selection:bg-accent selection:text-black pt-16 md:pt-16">
       <div className="container-custom">
         {/* Header Section */}
         <motion.div 
@@ -67,7 +67,7 @@ const TermsOfService = () => {
         >
           <div className="flex items-center gap-3 mb-6">
             <span className="w-2 h-8 bg-accent rounded-full" />
-            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter font-display italic">Service Protocol</h1>
+            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter font-display">Service Protocol</h1>
           </div>
           <p className="text-lg md:text-xl text-white/40 font-medium leading-relaxed max-w-2xl">
             Established standards for interacting with the ViewSpree Intelligence Grid and our proprietary technical assets.
