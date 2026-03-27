@@ -219,7 +219,7 @@ const Contact = () => {
                       ) : (
                         <>
                           <Send size={16} />
-                          <span className="font-black uppercase tracking-[4px] text-[11px]">Initiate Transmission</span>
+                          <span className="font-black uppercase tracking-[4px] text-[11px]">Send Message</span>
                         </>
                       )}
                     </div>
