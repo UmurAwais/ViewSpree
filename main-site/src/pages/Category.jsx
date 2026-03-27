@@ -78,8 +78,13 @@ const CategoryPage = () => {
   };
   
   const info = baseCategoryDataMap[slug] || { title: `${slug.toUpperCase()} Intelligence`, description: `Curated data from the ${slug} sector.` };
-  const categoryMeta = staticCategories.find(c => c.slug === slug) || staticCategories[0];
-  const heroImage = categoryMeta.image;
+  
+  // Intelligence Hero Logic: Priority 1: Subcategory Image Mapping | Priority 2: Static Category Image
+  const localSlugImage = getSubcategoryImage(slug);
+  const isDefaultMapped = localSlugImage === "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"; // Our fallback
+  
+  const staticCategoryMeta = staticCategories.find(c => c.slug === slug);
+  const heroImage = (!isDefaultMapped) ? localSlugImage : (staticCategoryMeta?.image || staticCategories[0].image);
 
   // Filter/Sort logic
   let displayPosts = [...posts];
