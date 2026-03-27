@@ -78,14 +78,21 @@ function transformPost(wpPost) {
 
   return {
     id: wpPost.id,
-    title: wpPost.title.rendered,
-    excerpt: wpPost.excerpt.rendered.replace(/<[^>]*>?/gm, '').trim(), // Stripping HTML tags
+    title: decodeHTMLEntities(wpPost.title.rendered),
+    excerpt: decodeHTMLEntities(wpPost.excerpt.rendered.replace(/<[^>]*>?/gm, '').trim()), // Stripping HTML tags
     image: featuredImage,
     category: category.toUpperCase(),
     date: formatWPDate(wpPost.date),
     readTime: "5 Min Read", // Dummy value
     link: wpPost.link
   };
+}
+
+function decodeHTMLEntities(text) {
+  if (!text) return "";
+  const textArea = document.createElement("textarea");
+  textArea.innerHTML = text;
+  return textArea.value;
 }
 
 function formatWPDate(dateString) {
